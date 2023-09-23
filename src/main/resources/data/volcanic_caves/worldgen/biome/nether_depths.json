@@ -1,0 +1,23 @@
+{
+  "temperature": 2.15,
+  "downfall": 0,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 7254527,
+    "fog_color": 1638400,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "particle": {
+      "options": {
+        "type": "minecraft:crimson_spore"
+      },
+      "probability": 0.1
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {
+    "air": "minecraft:nether_cave"
+  },
+  "features": []
+}
