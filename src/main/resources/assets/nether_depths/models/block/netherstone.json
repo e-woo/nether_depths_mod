@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "volcanic_caves:block/netherstone"
+    "all": "nether_depths:block/netherstone"
   }
 }

@@ -20,7 +20,7 @@
   "noise_router": {
     "barrier": 0.0,
     "continents": 0.0,
-    "depth": "volcanic_caves:nether_depths",
+    "depth": "nether_depths:nether_depths",
     "erosion": 0.0,
     "final_density": {
       "type": "minecraft:squeeze",

@@ -5,7 +5,7 @@
   "ore_veins_enabled": false,
   "legacy_random_source": false,
   "default_block": {
-    "Name": "volcanic_caves:netherstone"
+    "Name": "nether_depths:netherstone"
   },
   "default_fluid": {
     "Name": "minecraft:lava",

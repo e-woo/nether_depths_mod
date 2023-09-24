@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "volcanic_caves:netherstone"
+          "name": "nether_depths:netherstone"
         }
       ],
       "conditions": [

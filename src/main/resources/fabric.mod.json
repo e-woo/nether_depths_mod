@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "volcanic_caves",
+	"id": "nether_depths",
 	"version": "${version}",
 	"name": "Volcanic Caves",
 	"description": "Adds a new volcanic biome to the Nether.",
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/volcanic_caves/icon.png",
+	"icon": "assets/nether_depths/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.moistti.volcanic_caves.VolcanicCaves"
+			"net.moistti.nether_depths.NetherDepths"
 		],
 		"client": [
-			"net.moistti.volcanic_caves.VolcanicCavesClient"
+			"net.moistti.nether_depths.NetherDepthsClient"
 		],
 		"fabric-datagen": [
-          "net.moistti.volcanic_caves.VolcanicCavesDataGenerator"
+			"net.moistti.nether_depths.NetherDepthsDataGenerator"
 		]
 	},
 	"mixins": [
-		"volcanic_caves.mixins.json"
+		"nether_depths.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",

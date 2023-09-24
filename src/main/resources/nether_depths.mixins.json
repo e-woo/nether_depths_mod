@@ -1,8 +1,8 @@
 {
 	"required": true,
-	"package": "net.moistti.volcanic_caves.mixin",
+	"package": "net.moistti.nether_depths.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": ["NetherGen"],
+	"mixins": [],
 	"injectors": {
 		"defaultRequire": 1
 	}

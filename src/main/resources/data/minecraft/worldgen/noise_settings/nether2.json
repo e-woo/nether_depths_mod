@@ -44,7 +44,7 @@
     },
     "continents": 0,
     "erosion": 0,
-    "depth": "volcanic_caves:nether_depths",
+    "depth": "nether_depths:nether_depths",
     "ridges": 10,
     "initial_density_without_jaggedness": 0,
     "final_density": {
@@ -778,13 +778,13 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "volcanic_caves:nether_depths"
+            "nether_depths:nether_depths"
           ]
         },
         "then_run": {
           "type": "minecraft:block",
           "result_state": {
-            "Name": "volcanic_caves:netherstone"
+            "Name": "nether_depths:netherstone"
           }
         }
       }

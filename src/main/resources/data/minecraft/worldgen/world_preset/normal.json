@@ -90,7 +90,7 @@
               }
             },
             {
-              "biome": "volcanic_caves:nether_depths",
+              "biome": "nether_depths:nether_depths",
               "parameters": {
                 "temperature": -0.6,
                 "humidity": 0.0,

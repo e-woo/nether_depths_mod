@@ -1,4 +1,4 @@
-package net.moistti.volcanic_caves.world.biome;
+package net.moistti.nether_depths.world.biome;
 
 public class ModSurfaceConfigs {
     //public static final SurfaceBuilder
