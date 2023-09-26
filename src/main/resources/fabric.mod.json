@@ -36,5 +36,6 @@
 	},
 	"suggests": {
 		"another-mod": "*"
-	}
+	},
+	"accessWidener": "nether_depths.accesswidener"
 }
