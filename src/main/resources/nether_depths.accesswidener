@@ -4,5 +4,6 @@ extendable method net/minecraft/world/gen/chunk/NoiseChunkGenerator createFluidL
 accessible field net/minecraft/entity/vehicle/BoatEntity velocityDecay F
 accessible field net/minecraft/entity/vehicle/BoatEntity waterLevel D
 accessible field net/minecraft/entity/vehicle/BoatEntity yawVelocity F
+accessible field net/minecraft/entity/vehicle/BoatEntity fallVelocity D
 accessible field net/minecraft/entity/vehicle/BoatEntity location Lnet/minecraft/entity/vehicle/BoatEntity$Location;
 accessible field net/minecraft/entity/vehicle/BoatEntity lastLocation Lnet/minecraft/entity/vehicle/BoatEntity$Location;

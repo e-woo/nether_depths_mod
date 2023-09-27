@@ -36,6 +36,33 @@ public class IronBoat extends BoatEntity {
         }
     }
 
+    public float getLavaHeightBelow() {
+        Box box = this.getBoundingBox();
+        int i = MathHelper.floor(box.minX);
+        int j = MathHelper.ceil(box.maxX);
+        int k = MathHelper.floor(box.maxY);
+        int l = MathHelper.ceil(box.maxY - this.fallVelocity);
+        int m = MathHelper.floor(box.minZ);
+        int n = MathHelper.ceil(box.maxZ);
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        block0: for (int o = k; o < l; ++o) {
+            float f = 0.0f;
+            for (int p = i; p < j; ++p) {
+                for (int q = m; q < n; ++q) {
+                    mutable.set(p, o, q);
+                    FluidState fluidState = this.getWorld().getFluidState(mutable);
+                    if (fluidState.isIn(FluidTags.LAVA)) {
+                        f = Math.max(f, fluidState.getHeight(this.getWorld(), mutable));
+                    }
+                    if (f >= 1.0f) continue block0;
+                }
+            }
+            if (!(f < 1.0f)) continue;
+            return (float)mutable.getY() + f;
+        }
+        return l + 1;
+    }
+
     private boolean checkBoatInLava() {
         Box box = this.getBoundingBox();
         int i = MathHelper.floor(box.minX);
@@ -67,7 +94,7 @@ public class IronBoat extends BoatEntity {
         this.velocityDecay = 0.05f;
         if (this.lastLocation == Location.IN_AIR && this.location != Location.IN_AIR && this.location != Location.ON_LAND) {
             this.waterLevel = this.getBodyY(1.0);
-            this.setPosition(this.getX(), (double)(this.getWaterHeightBelow() - this.getHeight()) + 0.401, this.getZ());
+            this.setPosition(this.getX(), (double)(this.getLavaHeightBelow() - this.getHeight()) + 0.401, this.getZ());
             this.setVelocity(this.getVelocity().multiply(1.0, 0.0, 1.0));
             this.location = Location.IN_WATER;
         }
