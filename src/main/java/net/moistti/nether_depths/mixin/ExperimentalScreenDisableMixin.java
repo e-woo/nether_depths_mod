@@ -7,9 +7,9 @@ import com.mojang.serialization.Lifecycle;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(targets = "com/mojang/serialization/Lifecycle", remap = false)
-public abstract class ExperimentalScreenDisable {
+public abstract class ExperimentalScreenDisableMixin {
     @Inject(method = "experimental()Lcom/mojang/serialization/Lifecycle;", at = @At("RETURN"), cancellable = true)
-    private static void inject(CallbackInfoReturnable<Lifecycle> cir) {
+    private static void disableExperimentalScreen(CallbackInfoReturnable<Lifecycle> cir) {
         cir.setReturnValue(Lifecycle.stable());
     }
 }

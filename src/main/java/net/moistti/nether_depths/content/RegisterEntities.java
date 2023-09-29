@@ -1,4 +1,4 @@
-package net.moistti.nether_depths.registers;
+package net.moistti.nether_depths.content;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;

@@ -16,7 +16,6 @@ public class IronBoat extends BoatEntity {
 
     public IronBoat(EntityType<? extends BoatEntity> entityType, World world) {
         super(entityType, world);
-        
     }
     @Override
     public double getMountedHeightOffset() {
@@ -81,7 +80,7 @@ public class IronBoat extends BoatEntity {
                     FluidState fluidState = this.getWorld().getFluidState(mutable);
                     if (!fluidState.isIn(FluidTags.LAVA)) continue;
                     float f = (float)p + fluidState.getHeight(this.getWorld(), mutable);
-                    this.waterLevel = Math.max((double)f, this.waterLevel);
+                    this.waterLevel = Math.max(f, this.waterLevel);
                     bl |= box.minY < (double)f;
                 }
             }

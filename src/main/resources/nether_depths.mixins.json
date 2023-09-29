@@ -3,15 +3,16 @@
   "package": "net.moistti.nether_depths.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BoatSound",
-    "LavaTicker",
-    "NetherGen",
-    "Portal"
+    "BoatSoundMixin",
+    "DepthsHeatMixin",
+    "DepthsPortalBlockerMixin",
+    "LavaOceanTickerMixin",
+    "NetherGenerationMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ExperimentalScreenDisable"
+    "ExperimentalScreenDisableMixin"
   ]
 }

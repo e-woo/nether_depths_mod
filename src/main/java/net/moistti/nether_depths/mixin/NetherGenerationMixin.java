@@ -12,10 +12,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(NoiseChunkGenerator.class)
-public abstract class NetherGen {
+public abstract class NetherGenerationMixin {
     @Inject(method = "createFluidLevelSampler(Lnet/minecraft/world/gen/chunk/ChunkGeneratorSettings;)Lnet/minecraft/world/gen/chunk/AquiferSampler$FluidLevelSampler;",
     at = @At("RETURN"), cancellable = true)
-    private static void inject(ChunkGeneratorSettings settings, CallbackInfoReturnable<AquiferSampler.FluidLevelSampler> cir) {
+    private static void createSecondaryLavaOcean(ChunkGeneratorSettings settings, CallbackInfoReturnable<AquiferSampler.FluidLevelSampler> cir) {
         NetherDepths.LOGGER.info("injecting mixin!");
         int i = settings.seaLevel();
         if (settings.defaultFluid().equals(Fluids.LAVA.getDefaultState().getBlockState())) {
