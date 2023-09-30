@@ -11,6 +11,10 @@ import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
 
 public abstract class RegisterItems {
+//    public static final Item NETHERSTONE = RegisterBlocks.NETHERSTONE.asItem();
+//    public static final Item NETHERSTONE_GOLD_ORE = RegisterBlocks.NETHERSTONE_GOLD_ORE.asItem();
+//    public static final Item NETHERSTONE_QUARTZ_ORE = RegisterBlocks.NETHERSTONE_QUARTZ_ORE.asItem();
+//    public static final Item NETHERSTONE_BRICKS = RegisterBlocks.NETHERSTONE_BRICKS.asItem();
     public static void register() {
         addBlockItem("netherstone", RegisterBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -21,6 +25,8 @@ public abstract class RegisterItems {
 
         addBlockItem("netherstone_quartz_ore", RegisterBlocks.NETHERSTONE_QUARTZ_ORE);
         addToItemGroup(ItemGroups.NATURAL, RegisterBlocks.NETHERSTONE_QUARTZ_ORE.asItem(), RegisterBlocks.NETHERSTONE_GOLD_ORE.asItem());
+
+        addBlockItem("netherstone_bricks", RegisterBlocks.NETHERSTONE_BRICKS);
     }
 
     private static void addItem(String itemName, Item item) {

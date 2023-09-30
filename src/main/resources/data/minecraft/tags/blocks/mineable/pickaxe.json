@@ -3,6 +3,7 @@
   "values": [
     "nether_depths:netherstone",
     "nether_depths:netherstone_gold_ore",
-    "nether_depths:netherstone_quartz_ore"
+    "nether_depths:netherstone_quartz_ore",
+    "nether_depths:netherstone_bricks"
   ]
 }
