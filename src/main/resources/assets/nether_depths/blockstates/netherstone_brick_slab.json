@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nether_depths:block/netherstone_brick_slab"
+    },
+    "type=double": {
+      "model": "nether_depths:block/netherstone_bricks"
+    },
+    "type=top": {
+      "model": "nether_depths:block/netherstone_brick_slab_top"
+    }
+  }
+}

@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.content.*;
+import net.moistti.nether_depths.network.Packets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +30,9 @@ public class NetherDepths implements ModInitializer {
 		RegisterEvents.register();
 		LOGGER.info("Hello Fabric world!");
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "red_ash"), RED_ASH);
+
+		Packets.registerC2SPackets();
+		Packets.registerS2CPackets();
 
 //		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(
 //				new SimpleSynchronousResourceReloadListener() {

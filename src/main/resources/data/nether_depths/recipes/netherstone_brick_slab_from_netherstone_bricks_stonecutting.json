@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "nether_depths:netherstone_bricks"
+  },
+  "result": "nether_depths:netherstone_brick_slab"
+}

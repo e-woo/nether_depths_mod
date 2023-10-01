@@ -11,10 +11,6 @@ import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
 
 public abstract class RegisterItems {
-//    public static final Item NETHERSTONE = RegisterBlocks.NETHERSTONE.asItem();
-//    public static final Item NETHERSTONE_GOLD_ORE = RegisterBlocks.NETHERSTONE_GOLD_ORE.asItem();
-//    public static final Item NETHERSTONE_QUARTZ_ORE = RegisterBlocks.NETHERSTONE_QUARTZ_ORE.asItem();
-//    public static final Item NETHERSTONE_BRICKS = RegisterBlocks.NETHERSTONE_BRICKS.asItem();
     public static void register() {
         addBlockItem("netherstone", RegisterBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -27,6 +23,16 @@ public abstract class RegisterItems {
         addToItemGroup(ItemGroups.NATURAL, RegisterBlocks.NETHERSTONE_QUARTZ_ORE.asItem(), RegisterBlocks.NETHERSTONE_GOLD_ORE.asItem());
 
         addBlockItem("netherstone_bricks", RegisterBlocks.NETHERSTONE_BRICKS);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE_BRICKS.asItem(), RegisterBlocks.NETHERSTONE.asItem());
+
+        addBlockItem("netherstone_brick_stairs", RegisterBlocks.NETHERSTONE_BRICK_STAIRS);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE_BRICK_STAIRS.asItem(), RegisterBlocks.NETHERSTONE_BRICKS.asItem());
+
+        addBlockItem("netherstone_brick_slab", RegisterBlocks.NETHERSTONE_BRICK_SLAB);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE_BRICK_SLAB.asItem(), RegisterBlocks.NETHERSTONE_BRICK_STAIRS.asItem());
+
+        addBlockItem("netherstone_brick_wall", RegisterBlocks.NETHERSTONE_BRICK_WALL);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, RegisterBlocks.NETHERSTONE_BRICK_WALL.asItem(), RegisterBlocks.NETHERSTONE_BRICK_SLAB.asItem());
     }
 
     private static void addItem(String itemName, Item item) {
