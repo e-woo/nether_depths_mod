@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.moistti.nether_depths.NetherDepths;
 
-public final class RegisterBiomes {
+public final class DepthsBiomes {
     public static void register() {
         NetherBiomes.addNetherBiome(RegistryKey.of(RegistryKeys.BIOME, new Identifier(NetherDepths.MOD_ID, "nether_depths")),
                 new MultiNoiseUtil.NoiseHypercube(

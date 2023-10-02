@@ -18,13 +18,15 @@ public class HeatHudOverlay implements HudRenderCallback {
         MinecraftClient client = MinecraftClient.getInstance();
 
         if (client != null) {
+
             int width = client.getWindow().getScaledWidth();
             int height = client.getWindow().getScaledHeight();
 
             x = width / 2;
             y = height;
         }
-
+        if (client.player.isCreative() || client.player.isSpectator())
+            return;
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0, HEAT);

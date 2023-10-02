@@ -9,7 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.entities.IronBoat;
-public final class RegisterEntities {
+public final class DepthsEntities {
     public static final EntityType<IronBoat> IRON_BOAT =
             Registry.register(Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "iron_boat"), FabricEntityTypeBuilder.create(
                     SpawnGroup.MISC, IronBoat::new).dimensions(EntityDimensions.fixed(1.375f, 0.5625f)).fireImmune()

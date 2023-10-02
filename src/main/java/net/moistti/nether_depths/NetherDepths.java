@@ -23,11 +23,11 @@ public class NetherDepths implements ModInitializer {
 //			);
 	@Override
 	public void onInitialize() {
-		RegisterBlocks.register();
-		RegisterItems.register();
-		RegisterFeatures.register();
-		RegisterBiomes.register();
-		RegisterEvents.register();
+		DepthsBlocks.register();
+		DepthsItems.register();
+		DepthsFeatures.register();
+		DepthsBiomes.register();
+		DepthsEvents.register();
 		LOGGER.info("Hello Fabric world!");
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "red_ash"), RED_ASH);
 

@@ -4,6 +4,10 @@
     "nether_depths:netherstone",
     "nether_depths:netherstone_gold_ore",
     "nether_depths:netherstone_quartz_ore",
-    "nether_depths:netherstone_bricks"
+    "nether_depths:mineral_cluster",
+    "nether_depths:netherstone_bricks",
+    "nether_depths:netherstone_brick_stairs",
+    "nether_depths:netherstone_brick_slab",
+    "nether_depths:netherstone_brick_wall"
   ]
 }
