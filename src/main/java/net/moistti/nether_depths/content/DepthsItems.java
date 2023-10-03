@@ -8,9 +8,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.moistti.nether_depths.NetherDepths;
 
 public abstract class DepthsItems {
+    public static final Item NETHER_CORE = new Item(new FabricItemSettings());
+    public static final Item FIRE_CRYSTAL = new Item(new FabricItemSettings().fireproof().rarity(Rarity.RARE));
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -36,6 +39,13 @@ public abstract class DepthsItems {
 
         addBlockItem("netherstone_brick_wall", DepthsBlocks.NETHERSTONE_BRICK_WALL);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICK_WALL.asItem(), DepthsBlocks.NETHERSTONE_BRICK_SLAB.asItem());
+
+        addItem("nether_core", NETHER_CORE);
+
+        addItem("fire_crystal", FIRE_CRYSTAL);
+        addToItemGroup(ItemGroups.INGREDIENTS, FIRE_CRYSTAL, Items.AMETHYST_SHARD);
+
+        addBlockItem("ancient_forge", DepthsBlocks.ANCIENT_FORGE);
     }
 
     private static void addItem(String itemName, Item item) {

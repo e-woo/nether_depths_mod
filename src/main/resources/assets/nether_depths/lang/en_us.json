@@ -7,5 +7,6 @@
   "block.nether_depths.netherstone_brick_stairs": "Netherstone Brick Stairs",
   "block.nether_depths.netherstone_brick_slab": "Netherstone Brick Slab",
   "block.nether_depths.netherstone_brick_wall": "Netherstone Brick Wall",
-  "biome.nether_depths.nether_depths": "Nether Depths"
+  "biome.nether_depths.nether_depths": "Nether Depths",
+  "item.nether_depths.fire_crystal": "Fire Crystal"
 }

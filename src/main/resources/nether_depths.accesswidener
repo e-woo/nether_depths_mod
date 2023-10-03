@@ -8,3 +8,4 @@ accessible field net/minecraft/entity/vehicle/BoatEntity fallVelocity D
 accessible field net/minecraft/entity/vehicle/BoatEntity location Lnet/minecraft/entity/vehicle/BoatEntity$Location;
 accessible field net/minecraft/entity/vehicle/BoatEntity lastLocation Lnet/minecraft/entity/vehicle/BoatEntity$Location;
 accessible field net/minecraft/world/gen/chunk/AquiferSampler$Impl needsFluidTick Z
+accessible field net/minecraft/item/ItemStack nbt Lnet/minecraft/nbt/NbtCompound;

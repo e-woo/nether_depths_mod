@@ -7,7 +7,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
-import net.moistti.nether_depths.util.EntityDataSaver;
+import net.moistti.nether_depths.util.DataSaver;
 
 public class HeatHudOverlay implements HudRenderCallback {
     private static final Identifier HEAT = new Identifier(NetherDepths.MOD_ID, "textures/heat/heat.png");
@@ -31,7 +31,7 @@ public class HeatHudOverlay implements HudRenderCallback {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0, HEAT);
         drawContext.getMatrices().translate(0, 0, 50);
-        for (int i = 0; i < (((EntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("heat") + 1) / 2; i++) {
+        for (int i = 0; i < (((DataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("heat") + 1) / 2; i++) {
             drawContext.drawTexture(HEAT, x + 91 - (i * 8) - 9, y - 39 - 10, 0, 0, 9, 9, 9, 9);
         }
     }

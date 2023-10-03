@@ -2,6 +2,6 @@ package net.moistti.nether_depths.util;
 
 import net.minecraft.nbt.NbtCompound;
 
-public interface EntityDataSaver {
+public interface DataSaver {
     NbtCompound getPersistentData();
 }

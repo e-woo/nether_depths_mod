@@ -2,7 +2,7 @@ package net.moistti.nether_depths.mixin;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
-import net.moistti.nether_depths.util.EntityDataSaver;
+import net.moistti.nether_depths.util.DataSaver;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,27 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
-//public class DepthsHeatHelperMixin implements DepthsHeatHelper {
-//    @Unique float heatCounter = 0.0f;
-//    @Override
-//    public float getHeat() {
-//        return heatCounter;
-//    }
-//
-//    @Override
-//    public void heat(float amt) {
-//        heatCounter = Math.min(20.0f, heatCounter + amt);
-//        if (((LivingEntity) (Object) this).getType().equals(EntityType.PLAYER))
-//            DepthsHeatUtil.syncHeat(amt, ((ServerPlayerEntity) (Object) this));
-//    }
-//
-//    @Override
-//    public void cool(float amt) {
-//        heatCounter = Math.max(0.0f, heatCounter - amt);
-//    }
-//}
 
-public abstract class DepthsHeatHelperMixin implements EntityDataSaver {
+public abstract class DepthsHeatHelperMixin implements DataSaver {
     private NbtCompound persistentData;
 
     @Override @NotNull

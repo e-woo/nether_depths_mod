@@ -10,6 +10,7 @@ import net.moistti.nether_depths.network.Packets;
 public final class DepthsEvents {
     public static void register() {
         ClientTickEvents.END_WORLD_TICK.register(world -> ClientPlayNetworking.send(Packets.HEAT_ID, PacketByteBufs.create()));
+        ClientTickEvents.END_WORLD_TICK.register(world -> ClientPlayNetworking.send(Packets.FIREPROOF_ID, PacketByteBufs.create()));
         ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
     }
 }

@@ -9,7 +9,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.moistti.nether_depths.network.Packets;
 
 public class DepthsHeat {
-    public static int addHeat(EntityDataSaver entity, int amount) {
+    public static int addHeat(DataSaver entity, int amount) {
         NbtCompound nbt = entity.getPersistentData();
         int heat = nbt.getInt("heat");
         heat = Math.min(20, heat + amount);
@@ -21,7 +21,7 @@ public class DepthsHeat {
         return heat;
     }
 
-    public static int removeHeat(EntityDataSaver entity, int amount) {
+    public static int removeHeat(DataSaver entity, int amount) {
         NbtCompound nbt = entity.getPersistentData();
         int heat = nbt.getInt("heat");
         heat = Math.max(0, heat - amount);

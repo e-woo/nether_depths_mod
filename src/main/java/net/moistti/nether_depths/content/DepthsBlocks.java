@@ -9,6 +9,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.moistti.nether_depths.NetherDepths;
+import net.moistti.nether_depths.blocks.AncientForge;
 
 public final class DepthsBlocks {
     private static final BlockSoundGroup NETHERSTONE_BRICK_SOUND = new BlockSoundGroup(1.25f, 0.5f, SoundEvents.BLOCK_DEEPSLATE_BRICKS_BREAK, SoundEvents.BLOCK_DEEPSLATE_BRICKS_STEP, SoundEvents.BLOCK_DEEPSLATE_BRICKS_PLACE, SoundEvents.BLOCK_DEEPSLATE_BRICKS_HIT, SoundEvents.BLOCK_DEEPSLATE_BRICKS_FALL);
@@ -20,6 +21,7 @@ public final class DepthsBlocks {
     public static final Block NETHERSTONE_BRICK_STAIRS = new StairsBlock(NETHERSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
+    public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create());
 
     public static void register() {
         addBlock("netherstone", NETHERSTONE);
@@ -30,6 +32,7 @@ public final class DepthsBlocks {
         addBlock("netherstone_brick_stairs", NETHERSTONE_BRICK_STAIRS);
         addBlock("netherstone_brick_slab", NETHERSTONE_BRICK_SLAB);
         addBlock("netherstone_brick_wall", NETHERSTONE_BRICK_WALL);
+        addBlock("ancient_forge", ANCIENT_FORGE);
     }
 
     private static void addBlock(String blockName, Block block) {

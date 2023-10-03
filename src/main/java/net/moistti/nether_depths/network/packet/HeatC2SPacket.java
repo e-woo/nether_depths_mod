@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypeFilter;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.util.DepthsHeat;
-import net.moistti.nether_depths.util.EntityDataSaver;
+import net.moistti.nether_depths.util.DataSaver;
 
 public class HeatC2SPacket {
     public static final int HEAT_MIN = 0;
@@ -23,16 +23,16 @@ public class HeatC2SPacket {
         for (LivingEntity p : world.getEntitiesByType(TypeFilter.instanceOf(LivingEntity.class), p -> !p.isFireImmune())) {
             if (p.age % 20 != 0)
                 continue;
-            EntityDataSaver q = (EntityDataSaver) p;
+            DataSaver q = (DataSaver) p;
             if (world.getBiome(p.getBlockPos()).matchesId(NETHER_DEPTHS_BIOME_ID)) {
                 if (q.getPersistentData().getInt("heat") <= HEAT_MAX) {
-                    DepthsHeat.addHeat((EntityDataSaver) p, HEAT_TICK_AMOUNT);
+                    DepthsHeat.addHeat((DataSaver) p, HEAT_TICK_AMOUNT);
                     if (p instanceof ServerPlayerEntity)
                         DepthsHeat.syncHeat((ServerPlayerEntity) p, q.getPersistentData().getInt("heat"));
                 }
             }
             else if (q.getPersistentData().getInt("heat") >= HEAT_MIN) {
-                DepthsHeat.removeHeat((EntityDataSaver) p, HEAT_TICK_AMOUNT);
+                DepthsHeat.removeHeat((DataSaver) p, HEAT_TICK_AMOUNT);
                 if (p instanceof ServerPlayerEntity)
                     DepthsHeat.syncHeat((ServerPlayerEntity) p, q.getPersistentData().getInt("heat"));
             }
