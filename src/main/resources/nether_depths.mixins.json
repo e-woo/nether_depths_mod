@@ -9,8 +9,7 @@
     "DepthsPortalBlockerMixin",
     "ItemMixin",
     "LavaOceanTickerMixin",
-    "NetherGenerationMixin",
-    "RegistryUnfreezeMixin"
+    "NetherGenerationMixin"
   ],
   "injectors": {
     "defaultRequire": 1

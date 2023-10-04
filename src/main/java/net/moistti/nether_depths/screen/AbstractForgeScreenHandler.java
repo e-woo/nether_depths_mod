@@ -5,40 +5,40 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeMatcher;
+import net.minecraft.item.*;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.book.RecipeBookCategory;
-import net.minecraft.screen.AbstractRecipeScreenHandler;
-import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
+import net.moistti.nether_depths.content.DepthsItems;
 import net.moistti.nether_depths.content.DepthsRecipes;
 import net.moistti.nether_depths.forging.AbstractForgingRecipe;
+import net.moistti.nether_depths.screen.slot.ForgeFuelSlot;
+import net.moistti.nether_depths.screen.slot.ForgeGemSlot;
+import net.moistti.nether_depths.screen.slot.ForgeOutputSlot;
 
-public class AbstractForgeScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
+import java.util.Arrays;
+import java.util.List;
+
+public class AbstractForgeScreenHandler extends ScreenHandler {
     private final RecipeType<? extends AbstractForgingRecipe> recipeType;
-    private final RecipeBookCategory bookCategory;
     private final Inventory inventory;
-    private final PropertyDelegate propertyDelegate;
+//    private final PropertyDelegate propertyDelegate;
     protected final World world;
+    private final List<Item> gems = Arrays.asList(DepthsItems.RUBY, DepthsItems.SAPPHIRE, DepthsItems.TOPAZ);
 
-    protected AbstractForgeScreenHandler(ScreenHandlerType<?> type, RecipeType<? extends AbstractForgingRecipe> recipeType, RecipeBookCategory category, int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
+    protected AbstractForgeScreenHandler(ScreenHandlerType<?> type, RecipeType<? extends AbstractForgingRecipe> recipeType, int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(type, syncId);
         this.recipeType = recipeType;
-        this.bookCategory = category;
         this.inventory = inventory;
-        this.propertyDelegate = propertyDelegate;
-        AbstractForgeScreenHandler.checkSize(inventory, 6);
+//        this.propertyDelegate = propertyDelegate;
+        AbstractForgeScreenHandler.checkSize(inventory, 3);
         this.world = playerInventory.player.getWorld();
-        for (int i = 0; i < 2; ++i) {
-            for (int j = 0; j < 2; ++j) {
-                this.addSlot(new Slot(this.inventory, j + i * 3, 30 + j * 18, 17 + i * 18));
-            }
-        }
+        this.addSlot(new ForgeFuelSlot(this, this.inventory, 0, 40, 47)); // fuel slot
+        this.addSlot(new Slot(this.inventory, 1, 31, 21)); // input slot
+        this.addSlot(new ForgeGemSlot(this, this.inventory, 2, 49, 21)); // gem slot
+        this.addSlot(new ForgeOutputSlot(playerInventory.player, this.inventory, 3, 116, 35)); // output slot
+        // add player inventory slots
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -51,61 +51,62 @@ public class AbstractForgeScreenHandler extends AbstractRecipeScreenHandler<Inve
     }
 
     public AbstractForgeScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(DepthsRecipes.ANCIENT_FORGE_SCREEN_HANDLER, DepthsRecipes.FORGING, null, syncId, playerInventory, new SimpleInventory(6), new ArrayPropertyDelegate(6));
-    }
-
-    @Override
-    public void populateRecipeFinder(RecipeMatcher finder) {
-
-    }
-
-    @Override
-    public void clearCraftingSlots() {
-
-    }
-
-    @Override
-    public boolean matches(Recipe<? super Inventory> recipe) {
-        return recipe.matches(this.inventory, this.world);
-    }
-
-    @Override
-    public int getCraftingResultSlotIndex() {
-        return 5;
-    }
-
-    @Override
-    public int getCraftingWidth() {
-        return 2;
-    }
-
-    @Override
-    public int getCraftingHeight() {
-        return 2;
-    }
-
-    @Override
-    public int getCraftingSlotCount() {
-        return 6;
-    }
-
-    @Override
-    public RecipeBookCategory getCategory() {
-        return null;
-    }
-
-    @Override
-    public boolean canInsertIntoSlot(int index) {
-        return index != -1;
+        this(DepthsRecipes.ANCIENT_FORGE_SCREEN_HANDLER, DepthsRecipes.FORGING, syncId, playerInventory, new SimpleInventory(6));//, new ArrayPropertyDelegate(6));
     }
 
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {
-        return null;
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot slot2 = (Slot)this.slots.get(slot);
+        if (slot2.hasStack()) {
+            ItemStack itemStack2 = slot2.getStack();
+            itemStack = itemStack2.copy();
+            if (slot == 3) {
+                if (!this.insertItem(itemStack2, 4, 40, true)) {
+                    return ItemStack.EMPTY;
+                }
+                slot2.onQuickTransfer(itemStack2, itemStack);
+            } else if (slot == 1 || slot == 0 || slot == 2 ? !this.insertItem(itemStack2, 4, 40, false) : (this.isIngredient(itemStack2)? !this.insertItem(itemStack2, 1, 2, false) : (this.isFuel(itemStack2) ? !this.insertItem(itemStack2, 0, 1, false) : this.isGem(itemStack2) ? !this.insertItem(itemStack2, 2, 3, false) : (slot >= 4 && slot < 31 ? !this.insertItem(itemStack2, 31, 40, false) : slot >= 31 && slot < 40 && !this.insertItem(itemStack2, 4, 31, false))))) {
+                return ItemStack.EMPTY;
+            }
+            if (itemStack2.isEmpty()) {
+                slot2.setStack(ItemStack.EMPTY);
+            } else {
+                slot2.markDirty();
+            }
+            if (itemStack2.getCount() == itemStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+            slot2.onTakeItem(player, itemStack2);
+        }
+        return itemStack;
+    }
+
+    @Override
+    public void onContentChanged(Inventory inventory) {
+        ItemStack fuel = inventory.getStack(0);
+        ItemStack ingredient = inventory.getStack(1);
+        ItemStack gem = inventory.getStack(2);
+        if (isFuel(fuel) && isIngredient(ingredient) && isGem(gem)) {
+            System.out.println("correct recipe!");
+        }
     }
 
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
+    }
+
+    public boolean isFuel(ItemStack stack) {
+        return stack.isOf(DepthsItems.FIRE_CRYSTAL);
+    }
+
+    public boolean isGem(ItemStack stack) {
+        return gems.contains(stack.getItem());
+    }
+
+    public boolean isIngredient(ItemStack stack) {
+        Item item = stack.getItem();
+        return item instanceof MiningToolItem || item instanceof SwordItem || item instanceof ArmorItem;
     }
 }
