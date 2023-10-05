@@ -9,12 +9,14 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.moistti.nether_depths.NetherDepths;
 
 @Environment(value= EnvType.CLIENT)
 public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(NetherDepths.MOD_ID, "textures/gui/container/forge.png");
     private boolean narrow;
+    private ButtonWidget forgeButton;
     public ForgingScreen(AbstractForgeScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
@@ -24,12 +26,18 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
         super.init();
         this.narrow = this.width < 379;
         this.titleX = 29;
+        this.addDrawableChild(forgeButton = ButtonWidget.builder(Text.literal("Forge!"), button -> {
+            System.out.println("pressed!");
+            if (this.client != null && this.client.interactionManager != null)
+                this.client.interactionManager.clickButton(handler.syncId, 0);
+        }).size(40, 18).position(this.width / 2 - 18, this.height / 2 - 22).build()).active = false;
     }
 
-//    @Override
-//    public void handledScreenTick() {
-//        super.handledScreenTick();
-//    }
+    @Override
+    public void handledScreenTick() {
+        super.handledScreenTick();
+        forgeButton.active = handler.validIngredients() && !handler.isForging();
+    }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {

@@ -1,9 +1,6 @@
 package net.moistti.nether_depths.blocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.ParticleTypes;
@@ -22,9 +19,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.moistti.nether_depths.content.DepthsBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class AncientForge extends Block implements BlockEntityProvider {
+public class AncientForge extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty LIT = Properties.LIT;
     public AncientForge(Settings settings) {
@@ -36,6 +34,23 @@ public class AncientForge extends Block implements BlockEntityProvider {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new AncientForgeBlockEntity(pos, state);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
+    @Override
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return AncientForge.checkType(world, type, DepthsBlockEntities.ANCIENT_FORGE);
+    }
+
+
+    @Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends AncientForgeBlockEntity> expectedType) {
+        return world.isClient ? null : AncientForge.checkType(givenType, expectedType, AncientForgeBlockEntity::tick);
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -59,7 +74,7 @@ public class AncientForge extends Block implements BlockEntityProvider {
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof AncientForgeBlockEntity) {
-            player.openHandledScreen((NamedScreenHandlerFactory)(blockEntity));
+            player.openHandledScreen((NamedScreenHandlerFactory)blockEntity);
 //            player.incrementStat(Stats.INTERACT_WITH_FURNACE);
         }
         return ActionResult.CONSUME;
