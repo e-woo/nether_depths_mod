@@ -21,7 +21,7 @@ public final class DepthsBlocks {
     public static final Block NETHERSTONE_BRICK_STAIRS = new StairsBlock(NETHERSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
-    public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create());
+    public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create().strength(-1.0f, 3600000.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)));
 
     public static void register() {
         addBlock("netherstone", NETHERSTONE);

@@ -25,18 +25,19 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
     protected void init() {
         super.init();
         this.narrow = this.width < 379;
-        this.titleX = 29;
+        this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2;
         this.addDrawableChild(forgeButton = ButtonWidget.builder(Text.literal("Forge!"), button -> {
-            System.out.println("pressed!");
             if (this.client != null && this.client.interactionManager != null)
                 this.client.interactionManager.clickButton(handler.syncId, 0);
+            init();
+
         }).size(40, 18).position(this.width / 2 - 18, this.height / 2 - 22).build()).active = false;
     }
 
     @Override
     public void handledScreenTick() {
         super.handledScreenTick();
-        forgeButton.active = handler.validIngredients() && !handler.isForging();
+        forgeButton.active = handler.validIngredients() && !handler.isForging() && handler.getSlot(3).getStack().isEmpty();
     }
 
     @Override
@@ -55,6 +56,8 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
         int i = this.x;
         int j = (this.height - this.backgroundHeight) / 2;
         context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        int k = this.handler.getCookProgress();
+        context.drawTexture(TEXTURE, i + 79, j + 34, 176, 14, k + 1, 16);
     }
 
     @Override

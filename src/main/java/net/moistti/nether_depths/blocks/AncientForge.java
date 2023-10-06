@@ -82,24 +82,25 @@ public class AncientForge extends BlockWithEntity implements BlockEntityProvider
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!state.get(LIT)) {
+        if (!state.get(LIT))
             return;
-        }
-        double d = (double)pos.getX() + 0.5;
-        double e = pos.getY();
-        double f = (double)pos.getZ() + 0.5;
-        if (random.nextDouble() < 0.1) {
-            world.playSound(d, e, f, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0f, 1.0f, false);
-        }
+        double x = pos.getX() + 0.5;
+        double y = pos.getY();
+        double z = pos.getZ() + 0.5;
+        if (random.nextDouble() < 0.8)
+            world.playSound(x, y, z, SoundEvents.BLOCK_BLASTFURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 2.0f, 0.5f, false);
+        double xOffset, zOffset = xOffset = random.nextDouble() * 0.6 - 0.3;
+        double yOffset = random.nextDouble() * 3.0 / 8.0;
         Direction direction = state.get(FACING);
-        Direction.Axis axis = direction.getAxis();
-        double g = 0.52;
-        double h = random.nextDouble() * 0.6 - 0.3;
-        double i = axis == Direction.Axis.X ? (double)direction.getOffsetX() * 0.52 : h;
-        double j = random.nextDouble() * 6.0 / 16.0;
-        double k = axis == Direction.Axis.Z ? (double)direction.getOffsetZ() * 0.52 : h;
-        world.addParticle(ParticleTypes.SMOKE, d + i, e + j, f + k, 0.0, 0.0, 0.0);
-        world.addParticle(ParticleTypes.FLAME, d + i, e + j, f + k, 0.0, 0.0, 0.0);
+        if (direction.getAxis() == Direction.Axis.X)
+            xOffset = direction.getOffsetX() * 0.52;
+        else
+            zOffset = direction.getOffsetZ() * 0.52;
+        System.out.println("x offset: " + direction.getOffsetX());
+        System.out.println("z offset: " + direction.getOffsetZ());
+        world.addParticle(ParticleTypes.SMOKE, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
+        world.addParticle(ParticleTypes.FLAME, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
+        world.addParticle(ParticleTypes.LAVA, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
     }
 
 }
