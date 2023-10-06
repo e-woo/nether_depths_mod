@@ -1,5 +1,6 @@
 package net.moistti.nether_depths.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -14,34 +15,22 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.moistti.nether_depths.content.DepthsBlockEntities;
+import net.moistti.nether_depths.content.DepthsItems;
 import net.moistti.nether_depths.forging.ForgeInventory;
 import net.moistti.nether_depths.screen.AbstractForgeScreenHandler;
 import net.moistti.nether_depths.screen.AncientForgeScreenHandler;
 
 public class AncientForgeBlockEntity extends LockableContainerBlockEntity implements ForgeInventory, NamedScreenHandlerFactory {
-    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     private AbstractForgeScreenHandler handler;
-    int burnTime;
-    int cookTime;
-    int cookTimeTotal;
-    int cookable;
+    int forgeTime;
 
     protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
-
         @Override
         public int get(int index) {
             switch (index) {
                 case 0 -> {
-                    return AncientForgeBlockEntity.this.burnTime;
-                }
-                case 1 -> {
-                    return AncientForgeBlockEntity.this.cookTime;
-                }
-                case 2 -> {
-                    return AncientForgeBlockEntity.this.cookTimeTotal;
-                }
-                case 3 -> {
-                    return AncientForgeBlockEntity.this.cookable;
+                    return AncientForgeBlockEntity.this.forgeTime;
                 }
             }
             return 0;
@@ -50,16 +39,12 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
         @Override
         public void set(int index, int value) {
             switch (index) {
-                case 0 -> AncientForgeBlockEntity.this.burnTime = value;
-                case 1 -> AncientForgeBlockEntity.this.cookTime = value;
-                case 2 -> AncientForgeBlockEntity.this.cookTimeTotal = value;
-                case 3 -> AncientForgeBlockEntity.this.cookable = value;
+                case 0 -> AncientForgeBlockEntity.this.forgeTime = value;
             }
         }
-
         @Override
         public int size() {
-            return 4;
+            return 1;
         }
     };
     public AncientForgeBlockEntity(BlockPos pos, BlockState state) {
@@ -67,43 +52,37 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
     }
 
     @Override
-    public DefaultedList<ItemStack> getItems() {
-        return items;
+    public DefaultedList<ItemStack> getInventory() {
+        return inventory;
     }
 
     public static void tick(World world, BlockPos blockPos, BlockState blockState, AncientForgeBlockEntity blockEntity) {
-//        if (blockEntity.items.get(1).getItem() instanceof ToolItem)
-//            blockEntity.propertyDelegate.set(3, 1);
         if(world.isClient)
             return;
-        if (world.getTimeOfDay() % 10 != 0)
-            return;
-//        System.out.println(blockEntity.handler);
-        System.out.println(blockEntity.burnTime);
-//        System.out.println(blockEntity.items);
         if (blockEntity.isForging()) {
-            blockEntity.burnTime++;
-            System.out.println("burntime: " + blockEntity.burnTime);
+            blockEntity.forgeTime++;
         }
-//        if (blockEntity.burnTime == 60)
-//            blockEntity.setForging(false);
+        if (blockEntity.forgeTime == 200) {
+            blockEntity.finishForging();
+        }
+        blockState = blockState.with(AncientForge.LIT, blockEntity.isForging());
+        world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
+        AncientForgeBlockEntity.markDirty(world, blockPos, blockState);
 
-    }
-
-    public void setBurnTime(int time) {
-        this.burnTime = time;
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        Inventories.readNbt(nbt, items);
+        this.forgeTime = nbt.getInt("forgeTime");
+        Inventories.readNbt(nbt, inventory);
     }
 
     @Override
     public void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, items);
+        nbt.putInt("forgeTime", this.forgeTime);
         super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, inventory);
     }
 
     @Override
@@ -113,8 +92,6 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
 
     @Override
     public ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        System.out.println("create");
-        System.out.println(this.getPos());
         return handler = new AncientForgeScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
@@ -124,11 +101,33 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
     }
 
     public boolean isForging() {
-        return this.burnTime > 0;
+        return this.forgeTime > 0;
     }
 
-//    public void setForging(boolean forging) {
-//        handler.setForging(forging);
-//        burnTime = 0;
-//    }
+    public void finishForging() {
+        forgeTime = 0; // set the forging time back to 0
+        if (!AbstractForgeScreenHandler.validIngredients(ForgeInventory.of(inventory)))
+            return;
+        ItemStack outputItem = inventory.get(1).copy();
+        ItemStack gem = inventory.get(2);
+
+        // get gem type, write into the item's nbt
+        int gemType = -1;
+        if (gem.isOf(DepthsItems.RUBY))
+            gemType = 0;
+        else if (gem.isOf(DepthsItems.SAPPHIRE))
+            gemType = 1;
+        else if (gem.isOf(DepthsItems.TOPAZ))
+            gemType = 2;
+        NbtCompound nbt = outputItem.getNbt();
+        if (nbt != null && gemType >= 0)
+            nbt.putInt("gem", gemType);
+
+        // decrement forge contents
+        for (int i = 0; i <= 2; i++)
+            inventory.get(i).decrement(1);
+
+        // add the item to the output slot
+        inventory.set(3, outputItem);
+    }
 }

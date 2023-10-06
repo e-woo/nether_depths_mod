@@ -13,10 +13,10 @@ import net.moistti.nether_depths.NetherDepths;
 
 public abstract class DepthsItems {
     public static final Item NETHER_CORE = new Item(new FabricItemSettings());
-    public static final Item FIRE_CRYSTAL = new Item(new FabricItemSettings().fireproof().rarity(Rarity.RARE));
-    public static final Item RUBY = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
-    public static final Item SAPPHIRE = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
-    public static final Item TOPAZ = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON));
+    public static final Item FIRE_CRYSTAL = new Item(new FabricItemSettings().fireproof().rarity(Rarity.UNCOMMON));
+    public static final Item RUBY = new Item(new FabricItemSettings().rarity(Rarity.RARE));
+    public static final Item SAPPHIRE = new Item(new FabricItemSettings().rarity(Rarity.RARE));
+    public static final Item TOPAZ = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -49,10 +49,14 @@ public abstract class DepthsItems {
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_CRYSTAL, Items.AMETHYST_SHARD);
 
         addBlockItem("ancient_forge", DepthsBlocks.ANCIENT_FORGE);
+        addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
 
         addItem("ruby", RUBY);
+        addToItemGroup(ItemGroups.INGREDIENTS, RUBY, Items.NETHERITE_INGOT);
         addItem("sapphire", SAPPHIRE);
+        addToItemGroup(ItemGroups.INGREDIENTS, SAPPHIRE, RUBY);
         addItem("topaz", TOPAZ);
+        addToItemGroup(ItemGroups.INGREDIENTS, TOPAZ, SAPPHIRE);
     }
 
     private static void addItem(String itemName, Item item) {

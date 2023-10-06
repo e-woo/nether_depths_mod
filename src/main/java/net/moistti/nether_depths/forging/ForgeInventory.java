@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
 public interface ForgeInventory extends Inventory {
-    DefaultedList<ItemStack> getItems();
+    DefaultedList<ItemStack> getInventory();
 
     /**
      * Creates an inventory from the item list.
@@ -28,7 +28,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default int size() {
-        return getItems().size();
+        return getInventory().size();
     }
 
     /**
@@ -51,7 +51,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default ItemStack getStack(int slot) {
-        return getItems().get(slot);
+        return getInventory().get(slot);
     }
 
     /**
@@ -62,7 +62,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default ItemStack removeStack(int slot, int count) {
-        ItemStack result = Inventories.splitStack(getItems(), slot, count);
+        ItemStack result = Inventories.splitStack(getInventory(), slot, count);
         if (!result.isEmpty()) {
             markDirty();
         }
@@ -75,7 +75,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default ItemStack removeStack(int slot) {
-        return Inventories.removeStack(getItems(), slot);
+        return Inventories.removeStack(getInventory(), slot);
     }
 
     /**
@@ -87,7 +87,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default void setStack(int slot, ItemStack stack) {
-        getItems().set(slot, stack);
+        getInventory().set(slot, stack);
         if (stack.getCount() > stack.getMaxCount()) {
             stack.setCount(stack.getMaxCount());
         }
@@ -98,7 +98,7 @@ public interface ForgeInventory extends Inventory {
      */
     @Override
     default void clear() {
-        getItems().clear();
+        getInventory().clear();
     }
 
     /**
