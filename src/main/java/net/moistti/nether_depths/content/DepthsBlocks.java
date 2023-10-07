@@ -21,6 +21,12 @@ public final class DepthsBlocks {
     public static final Block NETHERSTONE_BRICK_STAIRS = new StairsBlock(NETHERSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
+    public static final Block CRACKED_NETHERSTONE_BRICKS = new Block(FabricBlockSettings.create().strength(3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(NETHERSTONE_BRICK_SOUND));
+    public static final Block POLISHED_NETHERSTONE = new Block(FabricBlockSettings.create().strength(3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(NETHERSTONE_BRICK_SOUND));
+    public static final Block POLISHED_NETHERSTONE_STAIRS = new StairsBlock(POLISHED_NETHERSTONE.getDefaultState(), FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
+    public static final Block POLISHED_NETHERSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
+    public static final Block POLISHED_NETHERSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
+    public static final Block CHISELED_POLISHED_NETHERSTONE = new Block(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create().strength(-1.0f, 3600000.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)));
 
     public static void register() {
@@ -33,6 +39,12 @@ public final class DepthsBlocks {
         addBlock("netherstone_brick_slab", NETHERSTONE_BRICK_SLAB);
         addBlock("netherstone_brick_wall", NETHERSTONE_BRICK_WALL);
         addBlock("ancient_forge", ANCIENT_FORGE);
+        addBlock("cracked_netherstone_bricks", CRACKED_NETHERSTONE_BRICKS);
+        addBlock("polished_netherstone", POLISHED_NETHERSTONE);
+        addBlock("polished_netherstone_stairs", POLISHED_NETHERSTONE_STAIRS);
+        addBlock("polished_netherstone_slab", POLISHED_NETHERSTONE_SLAB);
+        addBlock("polished_netherstone_wall", POLISHED_NETHERSTONE_WALL);
+        addBlock("chiseled_polished_netherstone", CHISELED_POLISHED_NETHERSTONE);
     }
 
     private static void addBlock(String blockName, Block block) {

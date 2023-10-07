@@ -11,6 +11,9 @@
     "facing=north,lit=false": {
       "model": "nether_depths:block/ancient_forge"
     },
+    "facing=north,lit=true": {
+      "model": "nether_depths:block/ancient_forge_on"
+    },
     "facing=south,lit=false": {
       "model": "nether_depths:block/ancient_forge",
       "y": 180

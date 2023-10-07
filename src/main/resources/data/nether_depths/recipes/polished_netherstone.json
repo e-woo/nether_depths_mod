@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "nether_depths:polished_netherstone"
+      "item": "nether_depths:netherstone"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "nether_depths:netherstone_bricks"
+    "item": "nether_depths:polished_netherstone"
   },
   "show_notification": true
 }

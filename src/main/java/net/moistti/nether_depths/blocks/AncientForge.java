@@ -2,6 +2,7 @@ package net.moistti.nether_depths.blocks;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -14,6 +15,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -101,6 +103,19 @@ public class AncientForge extends BlockWithEntity implements BlockEntityProvider
         world.addParticle(ParticleTypes.SMOKE, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.FLAME, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.LAVA, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
+    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.isOf(newState.getBlock()))
+            return;
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof AncientForgeBlockEntity) {
+            if (!world.isClient())
+                ItemScatterer.spawn(world, pos, (Inventory)(blockEntity));
+            world.updateComparators(pos, this);
+        }
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 
 }

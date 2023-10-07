@@ -1,5 +1,9 @@
 {
   "block.nether_depths.netherstone": "Netherstone",
+  "block.nether_depths.polished_netherstone": "Polished Netherstone",
+  "block.nether_depths.polished_netherstone_stairs": "Polished Netherstone Stairs",
+  "block.nether_depths.polished_netherstone_slab": "Polished Netherstone Slab",
+  "block.nether_depths.polished_netherstone_wall": "Polished Netherstone Wall",
   "block.nether_depths.netherstone_gold_ore": "Netherstone Gold Ore",
   "block.nether_depths.netherstone_quartz_ore": "Netherstone Quartz Ore",
   "block.nether_depths.mineral_cluster": "Mineral Cluster",
@@ -7,6 +11,8 @@
   "block.nether_depths.netherstone_brick_stairs": "Netherstone Brick Stairs",
   "block.nether_depths.netherstone_brick_slab": "Netherstone Brick Slab",
   "block.nether_depths.netherstone_brick_wall": "Netherstone Brick Wall",
+  "block.nether_depths.cracked_netherstone_bricks": "Cracked Netherstone Bricks",
+  "block.nether_depths.chiseled_polished_netherstone": "Chiseled Polished Netherstone",
   "block.nether_depths.ancient_forge": "Ancient Forge",
   "biome.nether_depths.nether_depths": "Nether Depths",
   "container.nether_depths.ancient_forge": "Ancient Forge",

@@ -7,12 +7,11 @@
     }
   },
   "pattern": [
-    "##",
-    "##"
+    "###"
   ],
   "result": {
-    "count": 4,
-    "item": "nether_depths:netherstone_bricks"
+    "count": 6,
+    "item": "nether_depths:polished_netherstone_slab"
   },
   "show_notification": true
 }

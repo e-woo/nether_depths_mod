@@ -58,12 +58,10 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
     public static void tick(World world, BlockPos blockPos, BlockState blockState, AncientForgeBlockEntity blockEntity) {
         if(world.isClient)
             return;
-        if (blockEntity.isForging()) {
+        if (blockEntity.isForging())
             blockEntity.forgeTime++;
-        }
-        if (blockEntity.forgeTime == 200) {
+        else if (blockEntity.forgeTime >= 400)
             blockEntity.finishForging();
-        }
         blockState = blockState.with(AncientForge.LIT, blockEntity.isForging());
         world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);
         AncientForgeBlockEntity.markDirty(world, blockPos, blockState);
@@ -96,7 +94,9 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
 
     @Override
     public void markDirty() {
-        handler.onContentChanged(this);
+        if (handler != null)
+            handler.onContentChanged(this);
+        super.markDirty();
     }
 
     public boolean isForging() {

@@ -25,8 +25,8 @@ public class NetherDepths implements ModInitializer {
 		DepthsEvents.register();
 		LOGGER.info("Hello Fabric world!");
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "red_ash"), RED_ASH);
-		new DepthsRecipes();
-		new DepthsBlockEntities();
+		DepthsScreens.register();
+		DepthsBlockEntities.register();
 		Packets.registerC2SPackets();
 		Packets.registerS2CPackets();
 	}
