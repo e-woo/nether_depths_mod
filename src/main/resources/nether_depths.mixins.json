@@ -4,10 +4,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ArmorHelperMixin",
-    "BoatSoundMixin",
     "DepthsHeatHelperMixin",
     "DepthsPortalBlockerMixin",
     "ItemMixin",
+    "LavaBoatMixin",
+    "LavaBoatPassengerImmuneMixin",
+    "LavaBoatSoundMixin",
     "LavaOceanTickerMixin",
     "NetherGenerationMixin"
   ],
