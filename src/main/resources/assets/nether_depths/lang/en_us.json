@@ -16,7 +16,9 @@
   "block.nether_depths.ancient_forge": "Ancient Forge",
   "biome.nether_depths.nether_depths": "Nether Depths",
   "container.nether_depths.ancient_forge": "Ancient Forge",
+  "entity.nether_depths.lava_boat": "Lava Boat",
   "item.nether_depths.fire_crystal": "Fire Crystal",
+  "item.nether_depths.lava_boat": "Lava Boat",
   "item.nether_depths.ruby": "Ruby",
   "item.nether_depths.sapphire": "Sapphire",
   "item.nether_depths.topaz": "Topaz"
