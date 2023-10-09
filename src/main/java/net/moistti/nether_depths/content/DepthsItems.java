@@ -3,6 +3,7 @@ package net.moistti.nether_depths.content;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -10,6 +11,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.moistti.nether_depths.NetherDepths;
+import net.moistti.nether_depths.items.LavaBoatItem;
 
 public abstract class DepthsItems {
     public static final Item NETHER_CORE = new Item(new FabricItemSettings());
@@ -17,6 +19,7 @@ public abstract class DepthsItems {
     public static final Item RUBY = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item SAPPHIRE = new Item(new FabricItemSettings().rarity(Rarity.RARE));
     public static final Item TOPAZ = new Item(new FabricItemSettings().rarity(Rarity.RARE));
+    public static final Item LAVA_BOAT = new LavaBoatItem(false, BoatEntity.Type.OAK, new FabricItemSettings().fireproof().maxCount(1));
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -74,6 +77,8 @@ public abstract class DepthsItems {
         addToItemGroup(ItemGroups.INGREDIENTS, SAPPHIRE, RUBY);
         addItem("topaz", TOPAZ);
         addToItemGroup(ItemGroups.INGREDIENTS, TOPAZ, SAPPHIRE);
+
+        addItem("lava_boat", LAVA_BOAT);
     }
 
     private static void addItem(String itemName, Item item) {
