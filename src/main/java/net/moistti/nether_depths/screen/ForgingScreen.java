@@ -43,21 +43,17 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.renderBackground(context);
-        if (this.narrow) {
+        if (this.narrow)
             this.drawBackground(context, delta, mouseX, mouseY);
-        } else {
+        else
             super.render(context, mouseX, mouseY, delta);
-        }
         this.drawMouseoverTooltip(context, mouseX, mouseY);
     }
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        int i = this.x;
-        int j = (this.height - this.backgroundHeight) / 2;
-        context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
-        int k = this.handler.getCookProgress();
-        context.drawTexture(TEXTURE, i + 79, j + 34, 176, 14, k + 1, 16);
+        context.drawTexture(TEXTURE, this.x, (this.height - this.backgroundHeight) / 2, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        context.drawTexture(TEXTURE, this.x + 79, (this.height - this.backgroundHeight) / 2 + 34, 176, 14, this.handler.getCookProgress() + 1, 16);
     }
 
     @Override

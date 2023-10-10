@@ -60,7 +60,7 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
             return;
         if (blockEntity.isForging())
             blockEntity.forgeTime++;
-        else if (blockEntity.forgeTime >= 400)
+        if (blockEntity.forgeTime >= 400)
             blockEntity.finishForging();
         blockState = blockState.with(AncientForge.LIT, blockEntity.isForging());
         world.setBlockState(blockPos, blockState, Block.NOTIFY_ALL);

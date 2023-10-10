@@ -15,7 +15,7 @@ import java.util.Set;
  * Entities riding the lava boat will normally burn due to their hitbox being in the lava. To prevent this, this mixin
  * will grant them immunity from these cases, as long as the boat is not submerged.*/
 @Mixin(Entity.class)
-public class LavaBoatPassengerImmuneMixin {
+public abstract class LavaBoatPassengerImmuneMixin {
     @Unique
     private final Entity self = (Entity) (Object) this;
     @Unique

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 /** For a lava boat. Responsible for adding on to vanilla boat physics to accommodate for lava as well.*/
 @Mixin(BoatEntity.class)
-public class LavaBoatMixin {
+public abstract class LavaBoatMixin {
     @Unique
     private final BoatEntity self = (BoatEntity) (Object) this;
     @Redirect(method = "getUnderWaterLocation()Lnet/minecraft/entity/vehicle/BoatEntity$Location;",

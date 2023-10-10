@@ -27,6 +27,7 @@ public class NetherDepths implements ModInitializer {
 		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "red_ash"), RED_ASH);
 		DepthsScreens.register();
 		DepthsBlockEntities.register();
+		DepthsEnchantments.register();
 		Packets.registerC2SPackets();
 		Packets.registerS2CPackets();
 	}

@@ -1,6 +1,8 @@
 package net.moistti.nether_depths.screen;
 
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -104,15 +106,16 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
     }
 
     public static boolean isIngredient(ItemStack stack) {
+        for (Enchantment enchantment : EnchantmentHelper.get(stack).keySet()) {
+            if (EnchantmentHelper.get(stack).get(enchantment) > enchantment.getMaxLevel())
+                return false;
+        }
         Item item = stack.getItem();
-        return item instanceof MiningToolItem || item instanceof SwordItem || item instanceof ArmorItem;
+        return (item instanceof MiningToolItem || item instanceof SwordItem || item instanceof ArmorItem);
     }
 
     public static boolean validIngredients(Inventory inventory) {
-        ItemStack fuel = inventory.getStack(0);
-        ItemStack ingredient = inventory.getStack(1);
-        ItemStack gem = inventory.getStack(2);
-        return isFuel(fuel) && isIngredient(ingredient) && isGem(gem);
+        return isFuel(inventory.getStack(0)) && isIngredient(inventory.getStack(1)) && isGem(inventory.getStack(2));
     }
 
     public boolean validIngredients() {

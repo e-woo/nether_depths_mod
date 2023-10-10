@@ -3,7 +3,7 @@
   "biomes": "#nether_depths:has_structure/ancient_forge",
   "step": "surface_structures",
   "spawn_overrides": {},
-  "terrain_adaptation": "beard_thin",
+  "terrain_adaptation": "beard_box",
   "start_pool": "nether_depths:ancient_forge/start_pool",
   "size": 2,
   "start_height": {
