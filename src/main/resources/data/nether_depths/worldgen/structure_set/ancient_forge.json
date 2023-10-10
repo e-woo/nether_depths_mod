@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "nether_depths:ancient_forge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 376830701,
+    "spacing": 16,
+    "separation": 8
+  }
+}

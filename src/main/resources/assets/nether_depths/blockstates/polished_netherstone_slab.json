@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nether_depths:block/polished_netherstone_slab"
+    },
+    "type=double": {
+      "model": "nether_depths:block/polished_netherstone"
+    },
+    "type=top": {
+      "model": "nether_depths:block/polished_netherstone_slab_top"
+    }
+  }
+}

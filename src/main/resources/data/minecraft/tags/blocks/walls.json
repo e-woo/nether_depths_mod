@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "nether_depths:netherstone_brick_wall"
+    "nether_depths:netherstone_brick_wall",
+    "nether_depths:polished_netherstone_wall"
   ]
 }

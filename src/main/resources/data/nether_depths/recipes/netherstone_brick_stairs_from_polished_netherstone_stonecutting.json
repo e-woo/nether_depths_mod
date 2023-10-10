@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "nether_depths:polished_netherstone"
+  },
+  "result": "nether_depths:netherstone_brick_stairs"
+}

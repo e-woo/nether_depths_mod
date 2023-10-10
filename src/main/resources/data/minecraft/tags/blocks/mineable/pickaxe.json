@@ -8,6 +8,12 @@
     "nether_depths:netherstone_bricks",
     "nether_depths:netherstone_brick_stairs",
     "nether_depths:netherstone_brick_slab",
-    "nether_depths:netherstone_brick_wall"
+    "nether_depths:netherstone_brick_wall",
+    "nether_depths:cracked_netherstone_bricks",
+    "nether_depths:polished_netherstone",
+    "nether_depths:polished_netherstone_stairs",
+    "nether_depths:polished_netherstone_slab",
+    "nether_depths:polished_netherstone_wall",
+    "nether_depths:chiseled_polished_netherstone"
   ]
 }

@@ -4,10 +4,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
-import net.moistti.nether_depths.network.packet.FireproofC2SPacket;
-import net.moistti.nether_depths.network.packet.FireproofSyncS2CPacket;
-import net.moistti.nether_depths.network.packet.HeatC2SPacket;
-import net.moistti.nether_depths.network.packet.HeatSyncS2CPacket;
+import net.moistti.nether_depths.network.packet.*;
 
 public class Packets {
     public static final Identifier HEAT_ID = new Identifier(NetherDepths.MOD_ID, "heat");

@@ -9,7 +9,10 @@ import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.blocks.AncientForgeBlockEntity;
 
 public class DepthsBlockEntities {
-    public static final BlockEntityType<AncientForgeBlockEntity> ANCIENT_FORGE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
-            new Identifier(NetherDepths.MOD_ID, "ancient_forge"),
-            FabricBlockEntityTypeBuilder.create(AncientForgeBlockEntity::new, DepthsBlocks.ANCIENT_FORGE).build());
+    public static BlockEntityType<AncientForgeBlockEntity> ANCIENT_FORGE;
+    public static void register() {
+        ANCIENT_FORGE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(NetherDepths.MOD_ID, "ancient_forge"),
+                FabricBlockEntityTypeBuilder.create(AncientForgeBlockEntity::new, DepthsBlocks.ANCIENT_FORGE).build());
+    }
 }

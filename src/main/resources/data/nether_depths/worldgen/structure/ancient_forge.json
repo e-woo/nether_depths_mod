@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#nether_depths:has_structure/ancient_forge",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_box",
+  "start_pool": "nether_depths:ancient_forge/start_pool",
+  "size": 2,
+  "start_height": {
+    "absolute": -30
+  },
+  "max_distance_from_center": 80,
+  "use_expansion_hack": false
+}

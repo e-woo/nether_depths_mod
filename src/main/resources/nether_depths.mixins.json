@@ -3,9 +3,22 @@
   "package": "net.moistti.nether_depths.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "NetherGen"
+    "ArmorGemTooltipMixin",
+    "ArmorHelperMixin",
+    "DepthsHeatHelperMixin",
+    "DepthsPortalBlockerMixin",
+    "ItemMixin",
+    "LavaBoatMixin",
+    "LavaBoatPassengerImmuneMixin",
+    "LavaBoatSoundMixin",
+    "LavaOceanTickerMixin",
+    "NetherGenerationMixin",
+    "TopazLevelBoostMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "client": [
+    "ExperimentalScreenDisableMixin"
+  ]
 }
