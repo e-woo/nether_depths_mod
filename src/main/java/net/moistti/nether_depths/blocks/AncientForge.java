@@ -98,8 +98,6 @@ public class AncientForge extends BlockWithEntity implements BlockEntityProvider
             xOffset = direction.getOffsetX() * 0.52;
         else
             zOffset = direction.getOffsetZ() * 0.52;
-        System.out.println("x offset: " + direction.getOffsetX());
-        System.out.println("z offset: " + direction.getOffsetZ());
         world.addParticle(ParticleTypes.SMOKE, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.FLAME, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.LAVA, x + xOffset, y + yOffset, z + zOffset, 0.0, 0.0, 0.0);

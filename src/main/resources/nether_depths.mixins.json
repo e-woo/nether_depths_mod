@@ -13,7 +13,7 @@
     "LavaBoatSoundMixin",
     "LavaOceanTickerMixin",
     "NetherGenerationMixin",
-    "TopazLevelBoostMixin"
+    "AnvilGemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
