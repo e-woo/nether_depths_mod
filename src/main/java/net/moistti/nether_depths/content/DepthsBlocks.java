@@ -2,6 +2,7 @@ package net.moistti.nether_depths.content;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -10,13 +11,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.blocks.AncientForge;
+import net.moistti.nether_depths.blocks.CrystalBlock;
 
 public final class DepthsBlocks {
     private static final BlockSoundGroup NETHERSTONE_BRICK_SOUND = new BlockSoundGroup(1.25f, 0.5f, SoundEvents.BLOCK_DEEPSLATE_BRICKS_BREAK, SoundEvents.BLOCK_DEEPSLATE_BRICKS_STEP, SoundEvents.BLOCK_DEEPSLATE_BRICKS_PLACE, SoundEvents.BLOCK_DEEPSLATE_BRICKS_HIT, SoundEvents.BLOCK_DEEPSLATE_BRICKS_FALL);
     public static final Block NETHERSTONE = new Block(FabricBlockSettings.create().strength(3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(new BlockSoundGroup(1.25f, 0.75f, SoundEvents.BLOCK_STONE_BREAK, SoundEvents.BLOCK_STONE_STEP, SoundEvents.BLOCK_STONE_PLACE, SoundEvents.BLOCK_STONE_HIT, SoundEvents.BLOCK_STONE_FALL)));
     public static final Block NETHERSTONE_GOLD_ORE = new ExperienceDroppingBlock(FabricBlockSettings.create().strength(4.0f, 3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.NETHER_GOLD_ORE), UniformIntProvider.create(0, 1));
     public static final Block NETHERSTONE_QUARTZ_ORE = new ExperienceDroppingBlock(FabricBlockSettings.create().strength(4.0f, 3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.NETHER_ORE), UniformIntProvider.create(2, 5));
-    public static final Block MINERAL_CLUSTER = new ExperienceDroppingBlock(FabricBlockSettings.create().strength(4.0f).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.NETHER_ORE), UniformIntProvider.create(4, 6));
+    public static final Block MINERAL_CLUSTER = new ExperienceDroppingBlock(FabricBlockSettings.create().strength(5.0f).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.NETHER_ORE), UniformIntProvider.create(4, 6));
     public static final Block NETHERSTONE_BRICKS = new Block(FabricBlockSettings.create().strength(3.5f).requiresTool().mapColor(MapColor.BLACK).sounds(NETHERSTONE_BRICK_SOUND));
     public static final Block NETHERSTONE_BRICK_STAIRS = new StairsBlock(NETHERSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
     public static final Block NETHERSTONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(NETHERSTONE_BRICKS));
@@ -28,6 +30,11 @@ public final class DepthsBlocks {
     public static final Block POLISHED_NETHERSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block CHISELED_POLISHED_NETHERSTONE = new Block(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create().strength(-1.0f, 3600000.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)));
+
+    public static final Block RUBY_CRYSTAL = new CrystalBlock(FabricBlockSettings.create().strength(10.0f).mapColor(MapColor.RED).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(state -> 5).solid().nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
+    public static final Block TOPAZ_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.YELLOW));
+    public static final Block JADE_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.GREEN));
+    public static final Block SAPPHIRE_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.BLUE));
 
     public static void register() {
         addBlock("netherstone", NETHERSTONE);
@@ -45,6 +52,10 @@ public final class DepthsBlocks {
         addBlock("polished_netherstone_slab", POLISHED_NETHERSTONE_SLAB);
         addBlock("polished_netherstone_wall", POLISHED_NETHERSTONE_WALL);
         addBlock("chiseled_polished_netherstone", CHISELED_POLISHED_NETHERSTONE);
+        addBlock("ruby_crystal", RUBY_CRYSTAL);
+        addBlock("topaz_crystal", TOPAZ_CRYSTAL);
+        addBlock("jade_crystal", JADE_CRYSTAL);
+        addBlock("sapphire_crystal", SAPPHIRE_CRYSTAL);
     }
 
     private static void addBlock(String blockName, Block block) {

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "nether_depths:block/jade_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "nether_depths:block/jade_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "nether_depths:block/jade_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "nether_depths:block/jade_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "nether_depths:block/jade_crystal"
+    },
+    "facing=west": {
+      "model": "nether_depths:block/jade_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

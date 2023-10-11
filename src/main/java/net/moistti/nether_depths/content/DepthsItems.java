@@ -73,6 +73,11 @@ public abstract class DepthsItems {
         addBlockItem("ancient_forge", DepthsBlocks.ANCIENT_FORGE);
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
 
+        addBlockItem("ruby_crystal", DepthsBlocks.RUBY_CRYSTAL);
+        addBlockItem("topaz_crystal", DepthsBlocks.TOPAZ_CRYSTAL);
+        addBlockItem("jade_crystal", DepthsBlocks.JADE_CRYSTAL);
+        addBlockItem("sapphire_crystal", DepthsBlocks.SAPPHIRE_CRYSTAL);
+
         addItem("ruby", RUBY);
         addToItemGroup(ItemGroups.INGREDIENTS, RUBY, Items.NETHERITE_INGOT);
         addItem("jade", JADE);
