@@ -31,7 +31,7 @@ public final class DepthsBlocks {
     public static final Block CHISELED_POLISHED_NETHERSTONE = new Block(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block ANCIENT_FORGE = new AncientForge(FabricBlockSettings.create().strength(-1.0f, 3600000.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)));
 
-    public static final Block RUBY_CRYSTAL = new CrystalBlock(FabricBlockSettings.create().strength(10.0f).mapColor(MapColor.RED).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(state -> 5).solid().nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
+    public static final Block RUBY_CRYSTAL = new CrystalBlock(FabricBlockSettings.create().strength(10.0f).requiresTool().mapColor(MapColor.RED).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(state -> 5).solid().nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
     public static final Block TOPAZ_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.YELLOW));
     public static final Block JADE_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.GREEN));
     public static final Block SAPPHIRE_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.BLUE));

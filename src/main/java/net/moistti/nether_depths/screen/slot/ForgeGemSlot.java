@@ -14,9 +14,4 @@ public class ForgeGemSlot extends Slot {
     public boolean canInsert(ItemStack stack) {
         return AbstractForgeScreenHandler.isGem(stack);
     }
-
-    @Override
-    public int getMaxItemCount() {
-        return 1;
-    }
 }

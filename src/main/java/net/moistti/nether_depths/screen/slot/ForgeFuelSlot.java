@@ -14,9 +14,4 @@ public class ForgeFuelSlot extends Slot {
     public boolean canInsert(ItemStack stack) {
         return AbstractForgeScreenHandler.isFuel(stack);
     }
-
-    @Override
-    public int getMaxItemCount() {
-        return 1;
-    }
 }
