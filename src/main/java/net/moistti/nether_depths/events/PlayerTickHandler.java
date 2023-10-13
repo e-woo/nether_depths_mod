@@ -18,7 +18,7 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
         for (ServerWorld world : server.getWorlds()) {
             for (LivingEntity p : world.getEntitiesByType(TypeFilter.instanceOf(LivingEntity.class), p -> !p.isFireImmune() && EnchantmentHelper.getEquipmentLevel(DepthsEnchantments.FLAME_GUARD, p) <= 0)) {
                 if (((DataSaver) p).getPersistentData().getInt("heat") >= 20)
-                    p.damage(world.getDamageSources().hotFloor(), 1.0f);
+                    p.damage(world.getDamageSources().onFire(), 1.0f);
                 if (((DataSaver) (Object) (p.getEquippedStack(EquipmentSlot.HEAD))).getPersistentData().getBoolean("fireproof")) {
                     p.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 20, 1, false, false, true));
                 }

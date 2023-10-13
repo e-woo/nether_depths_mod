@@ -1,6 +1,11 @@
 {
-  "parent": "item/generated",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nether_depths:item/fire_crystal"
+    "layer0": "nether_depths:block/fire_crystal"
+  },
+  "display": {
+    "head": {
+      "translation": [ 0, 14, -5 ]
+    }
   }
 }

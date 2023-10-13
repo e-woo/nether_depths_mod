@@ -131,7 +131,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nether_depths:fire_crystal",
+          "name": "nether_depths:fire_shard",
           "functions": [
             {
               "function": "minecraft:set_count",

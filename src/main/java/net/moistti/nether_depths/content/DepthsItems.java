@@ -9,14 +9,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.items.GemItem;
 import net.moistti.nether_depths.items.LavaBoatItem;
 
 public abstract class DepthsItems {
     public static final Item NETHER_CORE = new Item(new FabricItemSettings());
-    public static final Item FIRE_CRYSTAL = new Item(new FabricItemSettings().fireproof().rarity(Rarity.UNCOMMON));
+    public static final Item FIRE_SHARD = new Item(new FabricItemSettings().fireproof());
     public static final Item RUBY = new GemItem(new FabricItemSettings(), GemItem.Type.RUBY);
     public static final Item TOPAZ = new GemItem(new FabricItemSettings(), GemItem.Type.TOPAZ);
     public static final Item JADE = new GemItem(new FabricItemSettings(), GemItem.Type.JADE);
@@ -67,12 +66,13 @@ public abstract class DepthsItems {
 
         addItem("nether_core", NETHER_CORE);
 
-        addItem("fire_crystal", FIRE_CRYSTAL);
-        addToItemGroup(ItemGroups.INGREDIENTS, FIRE_CRYSTAL, Items.AMETHYST_SHARD);
+        addItem("fire_shard", FIRE_SHARD);
+        addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);
 
         addBlockItem("ancient_forge", DepthsBlocks.ANCIENT_FORGE);
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
 
+        addItem("fire_crystal", new BlockItem(DepthsBlocks.FIRE_CRYSTAL, new FabricItemSettings().fireproof()));
         addBlockItem("ruby_crystal", DepthsBlocks.RUBY_CRYSTAL);
         addBlockItem("topaz_crystal", DepthsBlocks.TOPAZ_CRYSTAL);
         addBlockItem("jade_crystal", DepthsBlocks.JADE_CRYSTAL);
@@ -89,6 +89,8 @@ public abstract class DepthsItems {
 
         addItem("lava_boat", LAVA_BOAT);
         addToItemGroup(ItemGroups.TOOLS, LAVA_BOAT, Items.BAMBOO_CHEST_RAFT);
+
+        addBlockItem("enhanced_beacon", DepthsBlocks.ENHANCED_BEACON);
     }
 
     private static void addItem(String itemName, Item item) {

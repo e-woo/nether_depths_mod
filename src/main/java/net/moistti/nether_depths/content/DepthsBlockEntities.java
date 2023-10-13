@@ -7,12 +7,17 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.blocks.AncientForgeBlockEntity;
+import net.moistti.nether_depths.blocks.EnhancedBeaconBlockEntity;
 
 public class DepthsBlockEntities {
     public static BlockEntityType<AncientForgeBlockEntity> ANCIENT_FORGE;
+    public static BlockEntityType<EnhancedBeaconBlockEntity> ENHANCED_BEACON;
     public static void register() {
         ANCIENT_FORGE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
                 new Identifier(NetherDepths.MOD_ID, "ancient_forge"),
                 FabricBlockEntityTypeBuilder.create(AncientForgeBlockEntity::new, DepthsBlocks.ANCIENT_FORGE).build());
+        ENHANCED_BEACON = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+                new Identifier(NetherDepths.MOD_ID, "enhanced_beacon"),
+                FabricBlockEntityTypeBuilder.create(EnhancedBeaconBlockEntity::new, DepthsBlocks.ENHANCED_BEACON).build());
     }
 }

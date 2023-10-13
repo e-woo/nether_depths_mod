@@ -3,8 +3,11 @@
   "package": "net.moistti.nether_depths.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AnvilGemMixin",
     "ArmorGemTooltipMixin",
     "ArmorHelperMixin",
+    "BeaconBlockEntityMixin",
+    "BeaconBlockMixin",
     "DepthsHeatHelperMixin",
     "DepthsPortalBlockerMixin",
     "ItemMixin",
@@ -13,12 +16,13 @@
     "LavaBoatSoundMixin",
     "LavaOceanTickerMixin",
     "NetherGenerationMixin",
-    "AnvilGemMixin"
+    "RarityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "BeaconScreenMixin",
     "ExperimentalScreenDisableMixin"
   ]
 }

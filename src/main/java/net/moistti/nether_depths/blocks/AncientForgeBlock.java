@@ -24,10 +24,10 @@ import net.minecraft.world.World;
 import net.moistti.nether_depths.content.DepthsBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class AncientForge extends BlockWithEntity implements BlockEntityProvider {
+public class AncientForgeBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty LIT = Properties.LIT;
-    public AncientForge(Settings settings) {
+    public AncientForgeBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(LIT, false));
     }
@@ -46,13 +46,13 @@ public class AncientForge extends BlockWithEntity implements BlockEntityProvider
     @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return AncientForge.checkType(world, type, DepthsBlockEntities.ANCIENT_FORGE);
+        return AncientForgeBlock.checkType(world, type, DepthsBlockEntities.ANCIENT_FORGE);
     }
 
 
     @Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends AncientForgeBlockEntity> expectedType) {
-        return world.isClient ? null : AncientForge.checkType(givenType, expectedType, AncientForgeBlockEntity::tick);
+        return world.isClient ? null : AncientForgeBlock.checkType(givenType, expectedType, AncientForgeBlockEntity::tick);
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

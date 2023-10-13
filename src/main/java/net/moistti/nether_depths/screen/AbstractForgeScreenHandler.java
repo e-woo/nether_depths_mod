@@ -95,7 +95,7 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
     }
 
     public static boolean isFuel(ItemStack stack) {
-        return stack.isOf(DepthsItems.FIRE_CRYSTAL);
+        return stack.isOf(DepthsItems.FIRE_SHARD);
     }
 
     public static boolean isGem(ItemStack stack) {
