@@ -19,6 +19,7 @@
   "block.nether_depths.topaz_crystal": "Topaz Crystal",
   "block.nether_depths.jade_crystal": "Jade Crystal",
   "block.nether_depths.sapphire_crystal": "Sapphire Crystal",
+  "block.nether_depths.enhanced_beacon": "Enhanced Beacon",
   "biome.nether_depths.nether_depths": "Nether Depths",
   "container.nether_depths.ancient_forge": "Ancient Forge",
   "enchantment.nether_depths.flame_guard": "Flame Guard",
@@ -36,5 +37,6 @@
   "item.nether_depths.ruby": "Ruby",
   "item.nether_depths.jade": "Jade",
   "item.nether_depths.sapphire": "Sapphire",
-  "item.nether_depths.topaz": "Topaz"
+  "item.nether_depths.topaz": "Topaz",
+  "item.nether_depths.piglin_elite_spawn_egg": "Piglin Elite Spawn Egg"
 }

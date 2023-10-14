@@ -16,6 +16,7 @@
     "LavaBoatSoundMixin",
     "LavaOceanTickerMixin",
     "NetherGenerationMixin",
+    "PiglinBrainMixin",
     "RarityMixin"
   ],
   "injectors": {

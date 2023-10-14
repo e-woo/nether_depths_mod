@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nether_depths:block/enhanced_beacon"
+    }
+  }
+}

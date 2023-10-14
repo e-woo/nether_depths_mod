@@ -20,3 +20,5 @@ mutable field net/minecraft/block/entity/BlockEntity type Lnet/minecraft/block/e
 accessible field net/minecraft/screen/ScreenHandler type Lnet/minecraft/screen/ScreenHandlerType;
 mutable field net/minecraft/screen/ScreenHandler type Lnet/minecraft/screen/ScreenHandlerType;
 accessible field net/minecraft/screen/BeaconScreenHandler context Lnet/minecraft/screen/ScreenHandlerContext;
+extendable method net/minecraft/entity/mob/PiglinEntity makeInitialWeapon ()Lnet/minecraft/item/ItemStack;
+accessible method net/minecraft/entity/mob/PiglinEntity makeInitialWeapon ()Lnet/minecraft/item/ItemStack;

@@ -28,6 +28,7 @@ public class NetherDepths implements ModInitializer {
 		DepthsScreens.register();
 		DepthsBlockEntities.register();
 		DepthsEnchantments.register();
+		DepthsEntities.registerAttributes();
 		Packets.registerC2SPackets();
 		Packets.registerS2CPackets();
 	}

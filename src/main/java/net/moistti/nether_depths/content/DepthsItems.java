@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.items.GemItem;
 import net.moistti.nether_depths.items.LavaBoatItem;
@@ -90,7 +91,10 @@ public abstract class DepthsItems {
         addItem("lava_boat", LAVA_BOAT);
         addToItemGroup(ItemGroups.TOOLS, LAVA_BOAT, Items.BAMBOO_CHEST_RAFT);
 
-        addBlockItem("enhanced_beacon", DepthsBlocks.ENHANCED_BEACON);
+        addItem("enhanced_beacon", new BlockItem(DepthsBlocks.ENHANCED_BEACON, new FabricItemSettings().rarity(Rarity.EPIC)));
+        addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ENHANCED_BEACON.asItem(), Items.BEACON);
+
+        addItem("piglin_elite_spawn_egg", new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0x8f6a40, new FabricItemSettings()));
     }
 
     private static void addItem(String itemName, Item item) {
