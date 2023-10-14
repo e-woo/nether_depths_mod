@@ -31,4 +31,8 @@ public class PiglinEliteEntity extends PiglinEntity {
     public void initEquipment(Random random, LocalDifficulty localDifficulty) {
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
     }
+
+    @Override
+    public void setBaby(boolean baby) {
+    }
 }

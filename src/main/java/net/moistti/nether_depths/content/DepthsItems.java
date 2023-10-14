@@ -94,7 +94,7 @@ public abstract class DepthsItems {
         addItem("enhanced_beacon", new BlockItem(DepthsBlocks.ENHANCED_BEACON, new FabricItemSettings().rarity(Rarity.EPIC)));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ENHANCED_BEACON.asItem(), Items.BEACON);
 
-        addItem("piglin_elite_spawn_egg", new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0x8f6a40, new FabricItemSettings()));
+        addItem("piglin_elite_spawn_egg", new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0xd69347, new FabricItemSettings()));
     }
 
     private static void addItem(String itemName, Item item) {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#nether_depths:has_structure/temple_of_the_depths",
+  "step": "underground_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "bury",
+  "start_pool": "nether_depths:temple_of_the_depths/start_pool",
+  "size": 7,
+  "start_height": {
+    "absolute": -40
+  },
+  "max_distance_from_center": 116,
+  "use_expansion_hack": false
+}
