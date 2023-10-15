@@ -22,6 +22,7 @@ public abstract class DepthsItems {
     public static final Item JADE = new GemItem(new FabricItemSettings(), GemItem.Type.JADE);
     public static final Item SAPPHIRE = new GemItem(new FabricItemSettings(), GemItem.Type.SAPPHIRE);
     public static final Item LAVA_BOAT = new LavaBoatItem(false, BoatEntity.Type.OAK, new FabricItemSettings().fireproof().maxCount(1));
+    public static final Item PIGLIN_ELITE_SPAWN_EGG = new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0xd69347, new FabricItemSettings());
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -45,16 +46,17 @@ public abstract class DepthsItems {
         addBlockItem("netherstone_bricks", DepthsBlocks.NETHERSTONE_BRICKS);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICKS.asItem(), DepthsBlocks.CHISELED_POLISHED_NETHERSTONE.asItem());
 
+        addBlockItem("cracked_netherstone_bricks", DepthsBlocks.CRACKED_NETHERSTONE_BRICKS);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.CRACKED_NETHERSTONE_BRICKS.asItem(),DepthsBlocks.NETHERSTONE_BRICKS.asItem());
+
         addBlockItem("netherstone_brick_stairs", DepthsBlocks.NETHERSTONE_BRICK_STAIRS);
-        addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICK_STAIRS.asItem(), DepthsBlocks.NETHERSTONE_BRICKS.asItem());
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICK_STAIRS.asItem(), DepthsBlocks.CRACKED_NETHERSTONE_BRICKS.asItem());
 
         addBlockItem("netherstone_brick_slab", DepthsBlocks.NETHERSTONE_BRICK_SLAB);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICK_SLAB.asItem(), DepthsBlocks.NETHERSTONE_BRICK_STAIRS.asItem());
 
         addBlockItem("netherstone_brick_wall", DepthsBlocks.NETHERSTONE_BRICK_WALL);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE_BRICK_WALL.asItem(), DepthsBlocks.NETHERSTONE_BRICK_SLAB.asItem());
-
-        addBlockItem("cracked_netherstone_bricks", DepthsBlocks.CRACKED_NETHERSTONE_BRICKS);
 
         addBlockItem("netherstone_gold_ore", DepthsBlocks.NETHERSTONE_GOLD_ORE);
         addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.NETHERSTONE_GOLD_ORE.asItem(), Items.NETHER_QUARTZ_ORE);
@@ -74,10 +76,15 @@ public abstract class DepthsItems {
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
 
         addItem("fire_crystal", new BlockItem(DepthsBlocks.FIRE_CRYSTAL, new FabricItemSettings().fireproof()));
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.FIRE_CRYSTAL.asItem(), Items.AMETHYST_CLUSTER);
         addBlockItem("ruby_crystal", DepthsBlocks.RUBY_CRYSTAL);
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.RUBY_CRYSTAL.asItem(), DepthsBlocks.FIRE_CRYSTAL.asItem());
         addBlockItem("topaz_crystal", DepthsBlocks.TOPAZ_CRYSTAL);
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.TOPAZ_CRYSTAL.asItem(), DepthsBlocks.RUBY_CRYSTAL.asItem());
         addBlockItem("jade_crystal", DepthsBlocks.JADE_CRYSTAL);
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.JADE_CRYSTAL.asItem(), DepthsBlocks.TOPAZ_CRYSTAL.asItem());
         addBlockItem("sapphire_crystal", DepthsBlocks.SAPPHIRE_CRYSTAL);
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.SAPPHIRE_CRYSTAL.asItem(), DepthsBlocks.JADE_CRYSTAL.asItem());
 
         addItem("ruby", RUBY);
         addToItemGroup(ItemGroups.INGREDIENTS, RUBY, Items.NETHERITE_INGOT);
@@ -94,7 +101,8 @@ public abstract class DepthsItems {
         addItem("enhanced_beacon", new BlockItem(DepthsBlocks.ENHANCED_BEACON, new FabricItemSettings().rarity(Rarity.EPIC)));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ENHANCED_BEACON.asItem(), Items.BEACON);
 
-        addItem("piglin_elite_spawn_egg", new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0xd69347, new FabricItemSettings()));
+        addItem("piglin_elite_spawn_egg", PIGLIN_ELITE_SPAWN_EGG);
+        addToItemGroup(ItemGroups.SPAWN_EGGS, PIGLIN_ELITE_SPAWN_EGG, Items.PIGLIN_BRUTE_SPAWN_EGG);
     }
 
     private static void addItem(String itemName, Item item) {

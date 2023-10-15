@@ -26,7 +26,6 @@ public abstract class DepthsPortalBlockerMixin {
     private void checkPortalValid(BlockPos pos, BlockPos.Mutable temp, Direction portalDirection, int distanceOrthogonalToPortal, CallbackInfoReturnable<Boolean> cir) {
         if (this.world.getDimensionKey().equals(DimensionTypes.THE_NETHER) && (pos.getY() <= 32
                 || this.world.getBiome(pos).matchesKey(RegistryKey.of(RegistryKeys.BIOME, new Identifier(NetherDepths.MOD_ID, "nether_depths"))))) {
-            NetherDepths.LOGGER.info("blocking portal from nether depths!");
             cir.setReturnValue(false);
         }
     }
