@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "H",
+    "N"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:beacon"
+    },
+    "H": {
+      "item": "nether_depths:heart_of_the_nether"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "nether_depths:lava_boat"
+  }
+}
