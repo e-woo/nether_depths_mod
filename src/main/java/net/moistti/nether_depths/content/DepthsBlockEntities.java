@@ -9,7 +9,7 @@ import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.blocks.AncientForgeBlockEntity;
 import net.moistti.nether_depths.blocks.EnhancedBeaconBlockEntity;
 
-public class DepthsBlockEntities {
+public final class DepthsBlockEntities {
     public static BlockEntityType<AncientForgeBlockEntity> ANCIENT_FORGE;
     public static BlockEntityType<EnhancedBeaconBlockEntity> ENHANCED_BEACON;
     public static void register() {

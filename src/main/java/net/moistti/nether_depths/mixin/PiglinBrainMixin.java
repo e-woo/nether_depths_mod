@@ -24,14 +24,14 @@ import java.util.List;
 @Mixin(PiglinBrain.class)
 public class PiglinBrainMixin {
     @Inject(method = "consumeOffHandItem(Lnet/minecraft/entity/mob/PiglinEntity;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PiglinBrain;acceptsForBarter(Lnet/minecraft/item/ItemStack;)Z"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private synchronized static void a(PiglinEntity piglin, boolean barter, CallbackInfo ci, ItemStack itemStack) {
+    private synchronized static void injectBarterItems(PiglinEntity piglin, boolean barter, CallbackInfo ci, ItemStack itemStack) {
         barterSuccess = (itemStack.isOf(Items.GOLD_INGOT) && !(piglin instanceof PiglinEliteEntity)) || (itemStack.isOf(Items.GOLD_BLOCK) && piglin instanceof PiglinEliteEntity);
     }
     @Unique
     private static boolean barterSuccess;
 
     @Inject(method = "acceptsForBarter(Lnet/minecraft/item/ItemStack;)Z", at = @At("RETURN"), cancellable = true)
-    private synchronized static void b(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+    private synchronized static void injectAcceptsForBarter(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(barterSuccess);
     }
 

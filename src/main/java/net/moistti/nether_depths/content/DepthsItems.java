@@ -14,8 +14,8 @@ import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.items.GemItem;
 import net.moistti.nether_depths.items.LavaBoatItem;
 
-public abstract class DepthsItems {
-    public static final Item NETHER_CORE = new Item(new FabricItemSettings());
+public final class DepthsItems {
+    public static final Item HEART_OF_THE_NETHER = new Item(new FabricItemSettings().fireproof().rarity(Rarity.UNCOMMON));
     public static final Item FIRE_SHARD = new Item(new FabricItemSettings().fireproof());
     public static final Item RUBY = new GemItem(new FabricItemSettings(), GemItem.Type.RUBY);
     public static final Item TOPAZ = new GemItem(new FabricItemSettings(), GemItem.Type.TOPAZ);
@@ -67,7 +67,8 @@ public abstract class DepthsItems {
         addBlockItem("mineral_cluster", DepthsBlocks.MINERAL_CLUSTER);
         addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.MINERAL_CLUSTER.asItem(), DepthsBlocks.NETHERSTONE_QUARTZ_ORE.asItem());
 
-        addItem("nether_core", NETHER_CORE);
+        addItem("heart_of_the_nether", HEART_OF_THE_NETHER);
+        addToItemGroup(ItemGroups.INGREDIENTS, HEART_OF_THE_NETHER, Items.HEART_OF_THE_SEA);
 
         addItem("fire_shard", FIRE_SHARD);
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);

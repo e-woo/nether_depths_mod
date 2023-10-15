@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.enchantments.FlameGuardEnchantment;
 
-public class DepthsEnchantments {
+public final class DepthsEnchantments {
     public static final Enchantment FLAME_GUARD = new FlameGuardEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.ARMOR_CHEST, new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET});
 
     public static void register() {
