@@ -84,7 +84,7 @@ public class AncientForgeBlockEntity extends LockableContainerBlockEntity implem
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.nether_depths.ancient_forge");
+        return Text.translatable("container.ancient_forge");
     }
 
     @Override

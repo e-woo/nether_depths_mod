@@ -20,11 +20,20 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 2,
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
         "location": "nether_depths:temple_of_the_depths/chest_room",
+        "processors": "nether_depths:temple_of_the_depths_generic_degradation"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "nether_depths:temple_of_the_depths/forge_room",
         "processors": "nether_depths:temple_of_the_depths_generic_degradation"
       }
     },
@@ -105,7 +114,16 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "nether_depths:temple_of_the_depths/intersection",
+        "location": "nether_depths:temple_of_the_depths/three_way_intersection",
+        "processors": "nether_depths:temple_of_the_depths_generic_degradation"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "nether_depths:temple_of_the_depths/four_way_intersection",
         "processors": "nether_depths:temple_of_the_depths_generic_degradation"
       }
     },
@@ -115,6 +133,15 @@
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
         "location": "nether_depths:temple_of_the_depths/tall_room",
+        "processors": "nether_depths:temple_of_the_depths_generic_degradation"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "nether_depths:temple_of_the_depths/spiral_staircase",
         "processors": "nether_depths:temple_of_the_depths_generic_degradation"
       }
     },

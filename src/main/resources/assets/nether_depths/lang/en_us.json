@@ -21,7 +21,8 @@
   "block.nether_depths.sapphire_crystal": "Sapphire Crystal",
   "block.nether_depths.enhanced_beacon": "Enhanced Beacon",
   "biome.nether_depths.nether_depths": "Nether Depths",
-  "container.nether_depths.ancient_forge": "Ancient Forge",
+  "container.ancient_forge": "Ancient Forge",
+  "container.forge_button": "Forge",
   "enchantment.nether_depths.flame_guard": "Flame Guard",
   "entity.nether_depths.lava_boat": "Lava Boat",
   "gem.nether_depths.ruby": "Ruby",
@@ -32,6 +33,7 @@
   "gem_description.nether_depths.topaz": "Gift of Fortune",
   "gem_description.nether_depths.jade": "Gift of Haste",
   "gem_description.nether_depths.sapphire": "Gift of Protection",
+  "gui.gem_tooltip": "Gem: ",
   "item.nether_depths.fire_shard": "Fire Shard",
   "item.nether_depths.lava_boat": "Lava Boat",
   "item.nether_depths.ruby": "Ruby",
@@ -39,5 +41,6 @@
   "item.nether_depths.sapphire": "Sapphire",
   "item.nether_depths.topaz": "Topaz",
   "item.nether_depths.piglin_elite_spawn_egg": "Piglin Elite Spawn Egg",
-  "item.nether_depths.heart_of_the_nether": "Heart of the Nether"
+  "item.nether_depths.heart_of_the_nether": "Heart of the Nether",
+  "filled_map.temple_of_the_depths": "Temple of the Depths Explorer Map"
 }

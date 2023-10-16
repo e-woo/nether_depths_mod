@@ -25,7 +25,7 @@ public abstract class ArmorGemTooltipMixin {
     private void injectTooltip(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, List<Text> tooltips) {
         NbtCompound nbt = self.getNbt();
         if (nbt != null && nbt.contains("gem"))
-            tooltips.add(Text.literal("Gem: ").formatted(Formatting.GRAY).append(Text.translatable("gem." + NetherDepths.MOD_ID + "." + nbt.getString("gem")).formatted(
+            tooltips.add(Text.translatable("gui.gem_tooltip").formatted(Formatting.GRAY).append(Text.translatable("gem." + NetherDepths.MOD_ID + "." + nbt.getString("gem")).formatted(
                     switch (nbt.getString("gem")) {
                         case "ruby" -> Formatting.RED;
                         case "topaz" -> Formatting.YELLOW;
