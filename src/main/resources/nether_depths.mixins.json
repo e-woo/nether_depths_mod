@@ -10,6 +10,7 @@
     "BeaconBlockMixin",
     "DepthsHeatHelperMixin",
     "DepthsPortalBlockerMixin",
+    "HeatedTouchMixin",
     "ItemMixin",
     "LavaBoatMixin",
     "LavaBoatPassengerImmuneMixin",

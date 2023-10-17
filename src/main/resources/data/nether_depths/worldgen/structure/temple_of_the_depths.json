@@ -17,6 +17,24 @@
           "weight": 10,
           "minCount": 3,
           "maxCount": 4
+        },
+        {
+          "type": "minecraft:enderman",
+          "weight": 5,
+          "minCount": 1,
+          "maxCount": 2
+        },
+        {
+          "type": "minecraft:skeleton",
+          "weight": 8,
+          "minCount": 2,
+          "maxCount": 3
+        },
+        {
+          "type": "minecraft:wither_skeleton",
+          "weight": 10,
+          "minCount": 2,
+          "maxCount": 4
         }
       ]
     }
