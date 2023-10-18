@@ -2,7 +2,6 @@ package net.moistti.nether_depths.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 
 public class HeatedTouchEnchantment extends Enchantment {
@@ -23,10 +22,5 @@ public class HeatedTouchEnchantment extends Enchantment {
     @Override
     public boolean isTreasure() {
         return true;
-    }
-
-    @Override
-    public boolean canAccept(Enchantment other) {
-        return super.canAccept(other) && other != Enchantments.SILK_TOUCH;
     }
 }

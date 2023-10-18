@@ -2,6 +2,7 @@ package net.moistti.nether_depths.content;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
@@ -16,6 +17,7 @@ import net.moistti.nether_depths.items.LavaBoatItem;
 
 public final class DepthsItems {
     public static final Item HEART_OF_THE_NETHER = new Item(new FabricItemSettings().fireproof().rarity(Rarity.UNCOMMON));
+    public static final Item NETHER_CORE = new Item(new FabricItemSettings().fireproof().rarity(Rarity.RARE));
     public static final Item FIRE_SHARD = new Item(new FabricItemSettings().fireproof());
     public static final Item RUBY = new GemItem(new FabricItemSettings(), GemItem.Type.RUBY);
     public static final Item TOPAZ = new GemItem(new FabricItemSettings(), GemItem.Type.TOPAZ);
@@ -69,6 +71,9 @@ public final class DepthsItems {
 
         addItem("heart_of_the_nether", HEART_OF_THE_NETHER);
         addToItemGroup(ItemGroups.INGREDIENTS, HEART_OF_THE_NETHER, Items.HEART_OF_THE_SEA);
+        addItem("nether_core", NETHER_CORE);
+        addToItemGroup(ItemGroups.INGREDIENTS, NETHER_CORE, HEART_OF_THE_NETHER);
+        FuelRegistry.INSTANCE.add(NETHER_CORE, 200);
 
         addItem("fire_shard", FIRE_SHARD);
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);

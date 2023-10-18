@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#H#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "nether_depths:fire_shard"
+    },
+    "H": {
+      "item": "nether_depths:heart_of_the_nether"
+    }
+  },
+  "result": {
+    "item": "nether_depths:nether_core"
+  }
+}
