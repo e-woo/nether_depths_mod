@@ -78,8 +78,11 @@ public final class DepthsItems {
         addItem("fire_shard", FIRE_SHARD);
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);
 
-        addBlockItem("ancient_forge", DepthsBlocks.ANCIENT_FORGE);
+        addItem("ancient_forge", new BlockItem(DepthsBlocks.ANCIENT_FORGE, new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
+
+        addItem("forge", new BlockItem(DepthsBlocks.FORGE, new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
+        addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.FORGE.asItem(), DepthsBlocks.ANCIENT_FORGE.asItem());
 
         addItem("fire_crystal", new BlockItem(DepthsBlocks.FIRE_CRYSTAL, new FabricItemSettings().fireproof()));
         addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.FIRE_CRYSTAL.asItem(), Items.AMETHYST_CLUSTER);

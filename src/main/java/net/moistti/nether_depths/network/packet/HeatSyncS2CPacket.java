@@ -8,6 +8,7 @@ import net.moistti.nether_depths.util.DataSaver;
 
 public class HeatSyncS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler, PacketByteBuf buf, PacketSender sender) {
-        ((DataSaver) client.player).getPersistentData().putInt("heat", buf.readInt());
+        if (client.player != null)
+            ((DataSaver) client.player).getPersistentData().putInt("heat", buf.readInt());
     }
 }

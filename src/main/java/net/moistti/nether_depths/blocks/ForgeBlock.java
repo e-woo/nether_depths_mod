@@ -1,5 +1,6 @@
 package net.moistti.nether_depths.blocks;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -9,20 +10,19 @@ import net.minecraft.world.World;
 import net.moistti.nether_depths.content.DepthsBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class AncientForgeBlock extends AbstractForgeBlock {
-    public AncientForgeBlock(Settings settings) {
-        super(settings);
+public class ForgeBlock extends AbstractForgeBlock {
+    public ForgeBlock(FabricBlockSettings fabricBlockSettings) {
+        super(fabricBlockSettings);
     }
-
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new AncientForgeBlockEntity(pos, state);
+        return new ForgeBlockEntity(pos, state);
     }
 
     @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return AbstractForgeBlock.checkType(world, type, DepthsBlockEntities.ANCIENT_FORGE);
+        return AbstractForgeBlock.checkType(world, type, DepthsBlockEntities.FORGE);
     }
 }

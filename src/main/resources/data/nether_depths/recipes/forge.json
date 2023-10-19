@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#C#",
+    "#N#"
+  ],
+  "key": {
+    "#": {
+      "item": "nether_depths:polished_netherstone"
+    },
+    "C": {
+      "item": "nether_depths:nether_core"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "nether_depths:forge"
+  }
+}

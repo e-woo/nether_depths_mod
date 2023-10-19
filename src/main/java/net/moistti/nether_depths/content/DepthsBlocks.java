@@ -13,6 +13,7 @@ import net.moistti.nether_depths.NetherDepths;
 import net.moistti.nether_depths.blocks.AncientForgeBlock;
 import net.moistti.nether_depths.blocks.CrystalBlock;
 import net.moistti.nether_depths.blocks.EnhancedBeaconBlock;
+import net.moistti.nether_depths.blocks.ForgeBlock;
 
 public final class DepthsBlocks {
     private static final BlockSoundGroup NETHERSTONE_BRICK_SOUND = new BlockSoundGroup(1.25f, 0.5f, SoundEvents.BLOCK_DEEPSLATE_BRICKS_BREAK, SoundEvents.BLOCK_DEEPSLATE_BRICKS_STEP, SoundEvents.BLOCK_DEEPSLATE_BRICKS_PLACE, SoundEvents.BLOCK_DEEPSLATE_BRICKS_HIT, SoundEvents.BLOCK_DEEPSLATE_BRICKS_FALL);
@@ -31,6 +32,7 @@ public final class DepthsBlocks {
     public static final Block POLISHED_NETHERSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block CHISELED_POLISHED_NETHERSTONE = new Block(FabricBlockSettings.copyOf(POLISHED_NETHERSTONE));
     public static final Block ANCIENT_FORGE = new AncientForgeBlock(FabricBlockSettings.create().strength(-1.0f, 3600000.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)));
+    public static final Block FORGE = new ForgeBlock(FabricBlockSettings.create().strength(20.0f).luminance(Blocks.createLightLevelFromLitBlockState(15)).requiresTool());
     public static final Block FIRE_CRYSTAL = new CrystalBlock(FabricBlockSettings.create().strength(7.5f).requiresTool().mapColor(MapColor.ORANGE).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(state -> 10).solid().nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
     public static final Block RUBY_CRYSTAL = new CrystalBlock(FabricBlockSettings.create().strength(10.0f).requiresTool().mapColor(MapColor.RED).sounds(BlockSoundGroup.AMETHYST_CLUSTER).luminance(state -> 5).solid().nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY));
     public static final Block TOPAZ_CRYSTAL = new CrystalBlock(FabricBlockSettings.copyOf(RUBY_CRYSTAL).mapColor(MapColor.YELLOW));
@@ -48,6 +50,7 @@ public final class DepthsBlocks {
         addBlock("netherstone_brick_slab", NETHERSTONE_BRICK_SLAB);
         addBlock("netherstone_brick_wall", NETHERSTONE_BRICK_WALL);
         addBlock("ancient_forge", ANCIENT_FORGE);
+        addBlock("forge", FORGE);
         addBlock("cracked_netherstone_bricks", CRACKED_NETHERSTONE_BRICKS);
         addBlock("polished_netherstone", POLISHED_NETHERSTONE);
         addBlock("polished_netherstone_stairs", POLISHED_NETHERSTONE_STAIRS);

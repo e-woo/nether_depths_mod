@@ -12,7 +12,6 @@ import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
 import net.moistti.nether_depths.content.DepthsItems;
-import net.moistti.nether_depths.content.DepthsScreens;
 import net.moistti.nether_depths.items.GemItem;
 import net.moistti.nether_depths.screen.slot.ForgeFuelSlot;
 import net.moistti.nether_depths.screen.slot.ForgeGemSlot;
@@ -46,8 +45,8 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
 
     }
 
-    public AbstractForgeScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(DepthsScreens.ANCIENT_FORGE_SCREEN_HANDLER, syncId, playerInventory, new SimpleInventory(6), new ArrayPropertyDelegate(4));
+    public AbstractForgeScreenHandler(ScreenHandlerType<?> screenHandlerType, int syncId, PlayerInventory playerInventory) {
+        this(screenHandlerType, syncId, playerInventory, new SimpleInventory(6), new ArrayPropertyDelegate(4));
     }
 
     @Override

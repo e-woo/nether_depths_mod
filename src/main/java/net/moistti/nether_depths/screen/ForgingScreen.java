@@ -10,6 +10,7 @@ import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.world.dimension.DimensionTypes;
 import net.moistti.nether_depths.NetherDepths;
 
 @Environment(value= EnvType.CLIENT)
@@ -36,7 +37,7 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
     @Override
     public void handledScreenTick() {
         super.handledScreenTick();
-        forgeButton.active = handler.validIngredients() && !handler.isForging() && handler.getSlot(3).getStack().isEmpty();
+        forgeButton.active = handler.validIngredients() && !handler.isForging() && handler.getSlot(3).getStack().isEmpty() && handler.world.getDimensionKey().equals(DimensionTypes.THE_NETHER);
     }
 
     @Override
