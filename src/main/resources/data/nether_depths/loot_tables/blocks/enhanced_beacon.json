@@ -12,11 +12,10 @@
               "source": "block_entity"
             }
           ],
-          "name": "minecraft:beacon"
+          "name": "nether_depths:enhanced_beacon"
         }
       ],
       "rolls": 1.0
     }
-  ],
-  "random_sequence": "minecraft:blocks/beacon"
+  ]
 }

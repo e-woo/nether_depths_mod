@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:ruby"
+    },
+    "title": {
+      "translate": "advancements.lustrous_find.title"
+    },
+    "description": {
+      "translate": "advancements.lustrous_find.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "nether_depths:fireproof",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "items": [
+              "nether_depths:ruby",
+              "nether_depths:topaz",
+              "nether_depths:jade",
+              "nether_depths:sapphire"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

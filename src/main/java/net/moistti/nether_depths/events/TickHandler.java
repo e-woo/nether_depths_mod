@@ -18,8 +18,8 @@ public class TickHandler implements ServerTickEvents.StartTick {
                 int heat = ((DataSaver) entity).getPersistentData().getInt("heat");
                 if (heat >= 20)
                     entity.setOnFireFor(1);
-                if (heat > 0)
-                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 100, heat / 10, false, false, false));
+                if (heat > 0 && entity.age % 60 == 0)
+                    entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200, heat / 10, false, false, false));
 //                    entity.damage(world.getDamageSources().onFire(), 1.0f);
             }
         }

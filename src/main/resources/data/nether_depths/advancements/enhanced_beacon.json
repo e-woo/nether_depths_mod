@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:enhanced_beacon"
+    },
+    "title": {
+      "translate": "advancements.enhanced_beacon.title"
+    },
+    "description": {
+      "translate": "advancements.enhanced_beacon.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "nether_depths:loot_temple",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nether_depths:enhanced_beacon"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  }
+}

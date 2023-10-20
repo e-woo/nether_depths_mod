@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:lava_boat"
+    },
+    "title": {
+      "translate": "advancements.boat_in_lava.title"
+    },
+    "description": {
+      "translate": "advancements.boat_in_lava.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "nether_depths:fireproof",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:ride_entity_in_lava",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "vehicle": {
+                "type": "nether_depths:lava_boat"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

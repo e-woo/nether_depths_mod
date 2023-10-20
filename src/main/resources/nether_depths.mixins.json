@@ -12,7 +12,6 @@
     "DepthsPortalBlockerMixin",
     "FurnaceFuelMixin",
     "HeatedTouchMixin",
-    "ItemMixin",
     "LavaBoatMixin",
     "LavaBoatPassengerImmuneMixin",
     "LavaBoatSoundMixin",

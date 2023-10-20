@@ -46,6 +46,9 @@ public class DepthsHeat {
     }
 
     public static boolean isImmune(LivingEntity entity) {
-        return entity.isFireImmune() || EnchantmentHelper.getEquipmentLevel(DepthsEnchantments.FLAME_GUARD, entity) >= 1 || netherMobTypes.contains(entity.getType());
+        return entity.isFireImmune() ||
+                EnchantmentHelper.getEquipmentLevel(DepthsEnchantments.FLAME_GUARD, entity) >= 1 ||
+                netherMobTypes.contains(entity.getType()) ||
+                (entity instanceof ServerPlayerEntity && (((ServerPlayerEntity) entity).isCreative() || entity.isSpectator()));
     }
 }
