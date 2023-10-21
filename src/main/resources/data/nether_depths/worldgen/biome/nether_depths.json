@@ -22,9 +22,9 @@
     },
     "particle": {
       "options": {
-        "type": "minecraft:crimson_spore"
+        "type": "nether_depths:ember"
       },
-      "probability": 0.1
+      "probability": 0.05
     }
   },
   "spawners": {

@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "nether_depths",
 	"version": "${version}",
-	"name": "Volcanic Caves",
-	"description": "Adds a new volcanic biome to the Nether.",
+	"name": "Nether Depths",
+	"description": "Exploration mod expanding on the Nether by adding the Depths, a dangerous environment...",
 	"authors": [
 		"moistti"
 	],
