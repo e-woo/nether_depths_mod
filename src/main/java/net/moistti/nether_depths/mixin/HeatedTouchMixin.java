@@ -12,7 +12,7 @@ import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.moistti.nether_depths.content.DepthsEnchantments;
+import net.moistti.nether_depths.enchantment.DepthsEnchantments;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

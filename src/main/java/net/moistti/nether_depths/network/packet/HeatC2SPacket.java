@@ -11,7 +11,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypeFilter;
 import net.moistti.nether_depths.NetherDepths;
-import net.moistti.nether_depths.content.DepthsEnchantments;
+import net.moistti.nether_depths.enchantment.DepthsEnchantments;
 import net.moistti.nether_depths.util.DepthsHeat;
 import net.moistti.nether_depths.util.DataSaver;
 

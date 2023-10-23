@@ -10,7 +10,7 @@ import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.moistti.nether_depths.NetherDepths;
-import net.moistti.nether_depths.entities.PiglinEliteEntity;
+import net.moistti.nether_depths.entity.PiglinEliteEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

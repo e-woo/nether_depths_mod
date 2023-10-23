@@ -2,7 +2,7 @@ package net.moistti.nether_depths.mixin;
 
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.item.ItemStack;
-import net.moistti.nether_depths.content.DepthsItems;
+import net.moistti.nether_depths.item.DepthsItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

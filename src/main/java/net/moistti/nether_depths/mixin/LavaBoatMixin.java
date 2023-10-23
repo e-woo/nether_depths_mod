@@ -6,7 +6,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.math.Vec3d;
-import net.moistti.nether_depths.entities.LavaBoat;
+import net.moistti.nether_depths.entity.vehicle.LavaBoat;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

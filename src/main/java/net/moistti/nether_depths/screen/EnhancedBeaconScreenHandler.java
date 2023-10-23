@@ -5,8 +5,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.BeaconScreenHandler;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandlerContext;
-import net.moistti.nether_depths.content.DepthsBlocks;
-import net.moistti.nether_depths.content.DepthsScreens;
+import net.moistti.nether_depths.block.DepthsBlocks;
 
 public class EnhancedBeaconScreenHandler extends BeaconScreenHandler {
     public EnhancedBeaconScreenHandler(int syncId, Inventory inventory) {

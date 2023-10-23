@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.moistti.nether_depths.content.DepthsEnchantments;
+import net.moistti.nether_depths.enchantment.DepthsEnchantments;
 import net.moistti.nether_depths.network.Packets;
 
 import java.util.Set;

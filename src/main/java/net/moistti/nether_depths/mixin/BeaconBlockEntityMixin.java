@@ -11,7 +11,7 @@ import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import net.moistti.nether_depths.blocks.EnhancedBeaconBlockEntity;
+import net.moistti.nether_depths.block.entity.EnhancedBeaconBlockEntity;
 import net.moistti.nether_depths.screen.EnhancedBeaconScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
