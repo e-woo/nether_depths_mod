@@ -180,6 +180,15 @@
         "location": "nether_depths:temple_of_the_depths/two_level_room",
         "processors": "nether_depths:temple_of_the_depths_generic_degradation"
       }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "nether_depths:temple_of_the_depths/stair_room",
+        "processors": "nether_depths:temple_of_the_depths_generic_degradation"
+      }
     }
   ]
 }

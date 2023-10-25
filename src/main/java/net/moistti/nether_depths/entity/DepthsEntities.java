@@ -24,7 +24,7 @@ public final class DepthsEntities {
     public static final EntityType<FireSpiritEntity> FIRE_SPIRIT = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "fire_spirit"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireSpiritEntity::new).
-            dimensions(EntityDimensions.fixed(1.1f, 0.7f)).trackRangeChunks(8).build());
+            dimensions(EntityDimensions.fixed(1.1f, 0.7f)).trackRangeChunks(8).fireImmune().build());
 
     public static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(PIGLIN_ELITE, PiglinEliteEntity.createPiglinEliteAttributes());

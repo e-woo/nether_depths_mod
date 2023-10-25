@@ -17,7 +17,7 @@ public abstract class AnvilGemMixin {
     private int injectGetMaxLevel(Enchantment instance) {
         NbtCompound nbt = self.input.getStack(0).getNbt();
         try {
-            if (nbt != null && nbt.contains("gem") && GemUtil.GEM_ENCHANTS.get(nbt.getString("gem")).contains(instance.getClass()))
+            if (nbt != null && nbt.contains("gem") && GemUtil.GEM_ENCHANTS.get(nbt.getString("gem")).contains(instance))
                 return instance.getMaxLevel() + 1;
             return instance.getMaxLevel();
         } catch (NullPointerException e) {

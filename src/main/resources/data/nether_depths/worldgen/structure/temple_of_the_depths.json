@@ -35,6 +35,12 @@
           "weight": 10,
           "minCount": 2,
           "maxCount": 4
+        },
+        {
+          "type": "nether_depths:fire_spirit",
+          "weight": 20,
+          "minCount": 1,
+          "maxCount": 3
         }
       ]
     }
