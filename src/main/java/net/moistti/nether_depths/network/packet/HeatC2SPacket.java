@@ -11,7 +11,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypeFilter;
 import net.moistti.nether_depths.NetherDepths;
-import net.moistti.nether_depths.content.DepthsEnchantments;
+import net.moistti.nether_depths.enchantment.DepthsEnchantments;
 import net.moistti.nether_depths.util.DepthsHeat;
 import net.moistti.nether_depths.util.DataSaver;
 
@@ -22,21 +22,31 @@ public class HeatC2SPacket {
     private static final Identifier netherDepthsBiomeID = new Identifier(NetherDepths.MOD_ID, "nether_depths");
     public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender sender) {
         ServerWorld world = player.getServerWorld();
-        for (LivingEntity p : world.getEntitiesByType(TypeFilter.instanceOf(LivingEntity.class), p -> !p.isFireImmune() && EnchantmentHelper.getEquipmentLevel(DepthsEnchantments.FLAME_GUARD, p) <= 0)) {
-            if (p.age % 20 != 0)
+        for (LivingEntity entity : world.getEntitiesByType(TypeFilter.instanceOf(LivingEntity.class), p -> !DepthsHeat.isImmune(p))) {
+            if (entity.age % 20 != 0)
                 continue;
-            DataSaver q = (DataSaver) p;
-            if (world.getBiome(p.getBlockPos()).matchesId(netherDepthsBiomeID)) {
+            DataSaver q = (DataSaver) entity;
+            if (world.getBiome(entity.getBlockPos()).matchesId(netherDepthsBiomeID)) {
                 if (q.getPersistentData().getInt("heat") <= HEAT_MAX) {
-                    DepthsHeat.addHeat((DataSaver) p, HEAT_TICK_AMOUNT);
-                    if (p instanceof ServerPlayerEntity)
-                        DepthsHeat.syncHeat((ServerPlayerEntity) p, q.getPersistentData().getInt("heat"));
+                    DepthsHeat.addHeat((DataSaver) entity, HEAT_TICK_AMOUNT);
+                    if (entity instanceof ServerPlayerEntity)
+                        DepthsHeat.syncHeat((ServerPlayerEntity) entity, q.getPersistentData().getInt("heat"));
                 }
             }
             else if (q.getPersistentData().getInt("heat") >= HEAT_MIN) {
-                DepthsHeat.removeHeat((DataSaver) p, HEAT_TICK_AMOUNT);
-                if (p instanceof ServerPlayerEntity)
-                    DepthsHeat.syncHeat((ServerPlayerEntity) p, q.getPersistentData().getInt("heat"));
+                DepthsHeat.removeHeat((DataSaver) entity, HEAT_TICK_AMOUNT);
+                if (entity instanceof ServerPlayerEntity)
+                    DepthsHeat.syncHeat((ServerPlayerEntity) entity, q.getPersistentData().getInt("heat"));
+            }
+        }
+        for (LivingEntity entity : world.getEntitiesByType(TypeFilter.instanceOf(LivingEntity.class), p -> EnchantmentHelper.getEquipmentLevel(DepthsEnchantments.FLAME_GUARD, p) >= 1)) {
+            if (entity.age % 20 != 0)
+                continue;
+            DataSaver q = (DataSaver) entity;
+            if (q.getPersistentData().getInt("heat") >= HEAT_MIN) {
+                DepthsHeat.removeHeat((DataSaver) entity, HEAT_TICK_AMOUNT);
+                if (entity instanceof ServerPlayerEntity)
+                    DepthsHeat.syncHeat((ServerPlayerEntity) entity, q.getPersistentData().getInt("heat"));
             }
         }
     }

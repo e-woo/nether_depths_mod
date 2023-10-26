@@ -14,6 +14,12 @@
     "nether_depths:polished_netherstone_stairs",
     "nether_depths:polished_netherstone_slab",
     "nether_depths:polished_netherstone_wall",
-    "nether_depths:chiseled_polished_netherstone"
+    "nether_depths:chiseled_polished_netherstone",
+    "nether_depths:fire_crystal",
+    "nether_depths:ruby_crystal",
+    "nether_depths:topaz_crystal",
+    "nether_depths:jade_crystal",
+    "nether_depths:sapphire_crystal",
+    "nether_depths:forge"
   ]
 }

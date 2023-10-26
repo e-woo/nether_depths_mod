@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "nether_depths:block/forge_bottom",
+    "east": "nether_depths:block/forge_side",
+    "north": "nether_depths:block/forge_front_on",
+    "particle": "nether_depths:block/forge_front_on",
+    "south": "nether_depths:block/forge_side",
+    "up": "nether_depths:block/forge_top",
+    "west": "nether_depths:block/forge_side"
+  }
+}

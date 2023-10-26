@@ -7,18 +7,39 @@
     "fog_color": 1638400,
     "water_color": 4159204,
     "water_fog_color": 329011,
+    "ambient_sound": "minecraft:ambient.basalt_deltas.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "music": {
+      "sound": "minecraft:music.nether.basalt_deltas",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
     "particle": {
       "options": {
-        "type": "minecraft:crimson_spore"
+        "type": "nether_depths:ember"
       },
-      "probability": 0.1
+      "probability": 0.05
     }
   },
   "spawners": {
     "creature": [
       {
         "type": "minecraft:strider",
-        "weight": 600,
+        "weight": 1,
+        "minCount": 2,
+        "maxCount": 4
+      }
+    ],
+    "monster": [
+      {
+        "type": "minecraft:magma_cube",
+        "weight": 1,
         "minCount": 2,
         "maxCount": 4
       }

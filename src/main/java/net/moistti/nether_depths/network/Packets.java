@@ -14,11 +14,9 @@ public class Packets {
 
     public static void registerC2SPackets() {
         ServerPlayNetworking.registerGlobalReceiver(HEAT_ID, HeatC2SPacket::receive);
-        ServerPlayNetworking.registerGlobalReceiver(FIREPROOF_ID, FireproofC2SPacket::receive);
     }
 
     public static void registerS2CPackets() {
         ClientPlayNetworking.registerGlobalReceiver(HEAT_SYNC_ID, HeatSyncS2CPacket::receive);
-        ClientPlayNetworking.registerGlobalReceiver(FIREPROOF_SYNC_ID, FireproofSyncS2CPacket::receive);
     }
 }

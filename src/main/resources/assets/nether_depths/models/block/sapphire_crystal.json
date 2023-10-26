@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "nether_depths:block/sapphire_crystal"
+  }
+}

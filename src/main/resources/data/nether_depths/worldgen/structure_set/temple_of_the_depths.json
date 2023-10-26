@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "nether_depths:temple_of_the_depths",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1225669933,
+    "spacing": 16,
+    "separation": 8
+  }
+}

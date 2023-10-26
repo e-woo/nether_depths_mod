@@ -1,0 +1,72 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:ancient_forge"
+    },
+    "title": {
+      "translate": "advancements.ancient_power.title"
+    },
+    "description": {
+      "translate": "advancements.ancient_power.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "nether_depths:lustrous_find",
+  "criteria": {
+    "ruby_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:ruby}"
+          }
+        ]
+      }
+    },
+    "topaz_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:topaz}"
+          }
+        ]
+      }
+    },
+    "jade_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:jade}"
+          }
+        ]
+      }
+    },
+    "sapphire_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:sapphire}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ruby_item",
+      "topaz_item",
+      "jade_item",
+      "sapphire_item"
+    ]
+  ]
+}

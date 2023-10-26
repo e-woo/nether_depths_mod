@@ -11,20 +11,16 @@ import net.minecraft.item.*;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
-import net.moistti.nether_depths.content.DepthsItems;
-import net.moistti.nether_depths.content.DepthsScreens;
+import net.moistti.nether_depths.item.DepthsItems;
+import net.moistti.nether_depths.item.GemItem;
 import net.moistti.nether_depths.screen.slot.ForgeFuelSlot;
 import net.moistti.nether_depths.screen.slot.ForgeGemSlot;
 import net.moistti.nether_depths.screen.slot.ForgeOutputSlot;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class AbstractForgeScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
     protected final World world;
-    private static final List<Item> gems = Arrays.asList(DepthsItems.RUBY, DepthsItems.SAPPHIRE, DepthsItems.TOPAZ);
 
     protected AbstractForgeScreenHandler(ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(type, syncId);
@@ -49,8 +45,8 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
 
     }
 
-    public AbstractForgeScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(DepthsScreens.ANCIENT_FORGE_SCREEN_HANDLER, syncId, playerInventory, new SimpleInventory(6), new ArrayPropertyDelegate(4));
+    public AbstractForgeScreenHandler(ScreenHandlerType<?> screenHandlerType, int syncId, PlayerInventory playerInventory) {
+        this(screenHandlerType, syncId, playerInventory, new SimpleInventory(6), new ArrayPropertyDelegate(4));
     }
 
     @Override
@@ -98,11 +94,11 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
     }
 
     public static boolean isFuel(ItemStack stack) {
-        return stack.isOf(DepthsItems.FIRE_CRYSTAL);
+        return stack.isOf(DepthsItems.FIRE_SHARD);
     }
 
     public static boolean isGem(ItemStack stack) {
-        return gems.contains(stack.getItem());
+        return stack.getItem() instanceof GemItem;
     }
 
     public static boolean isIngredient(ItemStack stack) {
@@ -115,7 +111,13 @@ public class AbstractForgeScreenHandler extends ScreenHandler {
     }
 
     public static boolean validIngredients(Inventory inventory) {
-        return isFuel(inventory.getStack(0)) && isIngredient(inventory.getStack(1)) && isGem(inventory.getStack(2));
+        Item inputItem = inventory.getStack(1).getItem();
+        ItemStack gem = inventory.getStack(2);
+        return isFuel(inventory.getStack(0)) && isIngredient(inventory.getStack(1)) && (
+                (inputItem instanceof SwordItem && (gem.isOf(DepthsItems.RUBY) || gem.isOf(DepthsItems.TOPAZ))) ||
+                (inputItem instanceof AxeItem && (gem.isOf(DepthsItems.RUBY) || gem.isOf(DepthsItems.JADE) || gem.isOf(DepthsItems.TOPAZ))) ||
+                ((inputItem instanceof PickaxeItem || inputItem instanceof ShovelItem || inputItem instanceof HoeItem) && (gem.isOf(DepthsItems.JADE) || gem.isOf(DepthsItems.TOPAZ))) ||
+                (inputItem instanceof ArmorItem && gem.isOf(DepthsItems.SAPPHIRE)));
     }
 
     public boolean validIngredients() {

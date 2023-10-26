@@ -10,6 +10,7 @@ import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.world.dimension.DimensionTypes;
 import net.moistti.nether_depths.NetherDepths;
 
 @Environment(value= EnvType.CLIENT)
@@ -26,18 +27,17 @@ public class ForgingScreen extends HandledScreen<AbstractForgeScreenHandler> {
         super.init();
         this.narrow = this.width < 379;
         this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2;
-        this.addDrawableChild(forgeButton = ButtonWidget.builder(Text.literal("Forge!"), button -> {
+        this.addDrawableChild(forgeButton = ButtonWidget.builder(Text.translatable("container.forge_button"), button -> {
             if (this.client != null && this.client.interactionManager != null)
                 this.client.interactionManager.clickButton(handler.syncId, 0);
             init();
-
         }).size(40, 18).position(this.width / 2 - 18, this.height / 2 - 22).build()).active = false;
     }
 
     @Override
     public void handledScreenTick() {
         super.handledScreenTick();
-        forgeButton.active = handler.validIngredients() && !handler.isForging() && handler.getSlot(3).getStack().isEmpty();
+        forgeButton.active = handler.validIngredients() && !handler.isForging() && handler.getSlot(3).getStack().isEmpty() && handler.world.getDimensionKey().equals(DimensionTypes.THE_NETHER);
     }
 
     @Override

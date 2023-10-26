@@ -1,0 +1,53 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "nether_depths:netherstone_bricks",
+            "probability": 0.3
+          },
+          "output_state": {
+            "Name": "nether_depths:cracked_netherstone_bricks"
+          }
+        },
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "nether_depths:netherstone_bricks",
+            "probability": 0.3
+          },
+          "output_state": {
+            "Name": "nether_depths:polished_netherstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:random_block_match",
+            "block": "nether_depths:polished_netherstone",
+            "probability": 0.3
+          },
+          "output_state": {
+            "Name": "nether_depths:netherstone_bricks"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -131,7 +131,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nether_depths:fire_crystal",
+          "name": "nether_depths:fire_shard",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -165,6 +165,35 @@
         {
           "type": "minecraft:empty",
           "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "nether_depths:on_temple_of_the_depths_maps",
+              "decoration": "red_x",
+              "zoom": 1,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "filled_map.temple_of_the_depths"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 1
         }
       ]
     }

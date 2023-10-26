@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:netherstone"
+    },
+    "title": {
+      "translate": "advancements.root.title"
+    },
+    "description": {
+      "translate": "advancements.root.description"
+    },
+    "background": "nether_depths:textures/gui/advancements/backgrounds/netherstone.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "position": {
+                  "y": {
+                    "min": -64,
+                    "max": -4
+                  }
+                },
+                "biome": "nether_depths:nether_depths"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

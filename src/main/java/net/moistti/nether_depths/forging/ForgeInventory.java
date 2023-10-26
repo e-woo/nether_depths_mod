@@ -55,10 +55,10 @@ public interface ForgeInventory extends Inventory {
     }
 
     /**
-     * Removes items from an inventory slot.
+     * Removes item from an inventory slot.
      * @param slot  The slot to remove from.
-     * @param count How many items to remove. If there are less items in the slot than what are requested,
-     *              takes all items in that slot.
+     * @param count How many item to remove. If there are less item in the slot than what are requested,
+     *              takes all item in that slot.
      */
     @Override
     default ItemStack removeStack(int slot, int count) {
@@ -70,7 +70,7 @@ public interface ForgeInventory extends Inventory {
     }
 
     /**
-     * Removes all items from an inventory slot.
+     * Removes all item from an inventory slot.
      * @param slot The slot to remove from.
      */
     @Override
@@ -104,7 +104,7 @@ public interface ForgeInventory extends Inventory {
     /**
      * Marks the state as dirty.
      * Must be called after changes in the inventory, so that the game can properly save
-     * the inventory contents and notify neighboring blocks of inventory changes.
+     * the inventory contents and notify neighboring block of inventory changes.
      */
     @Override
     default void markDirty() {

@@ -1,0 +1,67 @@
+{
+  "display": {
+    "icon": {
+      "item": "nether_depths:forge"
+    },
+    "title": {
+      "translate": "advancements.gemstone_master.title"
+    },
+    "description": {
+      "translate": "advancements.gemstone_master.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "nether_depths:ancient_power",
+  "criteria": {
+    "ruby_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:ruby}"
+          }
+        ]
+      }
+    },
+    "topaz_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:topaz}"
+          }
+        ]
+      }
+    },
+    "jade_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:jade}"
+          }
+        ]
+      }
+    },
+    "sapphire_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [],
+        "items": [
+          {
+            "nbt": "{gem:sapphire}"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  }
+}
