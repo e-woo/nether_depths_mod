@@ -21,13 +21,6 @@ public class GemItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-//        tooltip.add(1, Text.translatable("gem_description." + NetherDepths.MOD_ID + "." + type.getPath())
-//                .formatted(switch (type) {
-//                    case RUBY -> Formatting.RED;
-//                    case SAPPHIRE -> Formatting.AQUA;
-//                    case TOPAZ -> Formatting.YELLOW;
-//                    case JADE -> Formatting.GREEN;
-//                }));
         for (Enchantment enchantment : GemUtil.GEM_ENCHANTS.get(type.getPath())) {
             tooltip.add(1, Text.translatable(enchantment.getTranslationKey()).append(Text.literal(" +")).formatted(type.getFormat()));
         }

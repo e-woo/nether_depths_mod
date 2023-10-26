@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -15,6 +17,9 @@ import net.minecraft.world.World;
 import net.moistti.nether_depths.block.AncientForgeBlock;
 import net.moistti.nether_depths.forging.ForgeInventory;
 import net.moistti.nether_depths.screen.AbstractForgeScreenHandler;
+import net.moistti.nether_depths.util.GemUtil;
+
+import java.util.Map;
 
 public abstract class AbstractForgeBlockEntity extends LockableContainerBlockEntity implements ForgeInventory, NamedScreenHandlerFactory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
@@ -96,12 +101,19 @@ public abstract class AbstractForgeBlockEntity extends LockableContainerBlockEnt
         if (!AbstractForgeScreenHandler.validIngredients(ForgeInventory.of(inventory)))
             return;
         ItemStack outputItem = inventory.get(1).copy();
-        ItemStack gem = inventory.get(2);
+        String gemType = inventory.get(2).getItem().toString();
 
         // get gem type, write into the item's nbt
         NbtCompound nbt = outputItem.getNbt();
         if (nbt != null)
-            nbt.putString("gem", gem.getItem().toString());
+            nbt.putString("gem", gemType);
+
+        // give a free level upgrade of enchantments that are boosted by the gem
+        Map<Enchantment, Integer> itemEnchants = EnchantmentHelper.get(outputItem);
+        for (Enchantment enchantment : GemUtil.GEM_ENCHANTS.get(gemType))
+            if (itemEnchants.containsKey(enchantment))
+                itemEnchants.put(enchantment, Math.min(itemEnchants.get(enchantment) + 1, enchantment.getMaxLevel() + 1));
+        EnchantmentHelper.set(itemEnchants, outputItem);
 
         // decrement forge contents
         for (int i = 0; i <= 2; i++)
