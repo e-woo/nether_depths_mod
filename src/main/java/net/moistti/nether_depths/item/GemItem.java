@@ -1,7 +1,7 @@
 package net.moistti.nether_depths.item;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class GemItem extends Item {
-    Type type;
+    public Type type;
     public GemItem(Settings settings, Type type) {
         super(settings);
         this.type = type;
@@ -21,29 +21,35 @@ public class GemItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        for (Enchantment enchantment : GemUtil.GEM_ENCHANTS.get(type.getPath())) {
+        for (Enchantment enchantment : GemUtil.GEM_ENCHANTS.get(type.toString())) {
             tooltip.add(1, Text.translatable(enchantment.getTranslationKey()).append(Text.literal(" +")).formatted(type.getFormat()));
         }
     }
 
     public enum Type {
-        RUBY("ruby", Formatting.RED),
-        SAPPHIRE("sapphire", Formatting.AQUA),
-        TOPAZ("topaz", Formatting.YELLOW),
-        JADE("jade", Formatting.GREEN);
-        final String path;
-        final Formatting format;
-        Type(String path, Formatting format) {
-            this.path = path;
+        RUBY("ruby", Formatting.RED, DamageEnchantment.class),
+        SAPPHIRE("sapphire", Formatting.AQUA, ProtectionEnchantment.class),
+        TOPAZ("topaz", Formatting.YELLOW, LuckEnchantment.class),
+        JADE("jade", Formatting.GREEN, EfficiencyEnchantment.class);
+        private final String name;
+        private final Formatting format;
+        private final Class<? extends Enchantment> enchantmentType;
+        Type(String name, Formatting format, Class<? extends Enchantment> enchantmentType) {
+            this.name = name;
             this.format = format;
+            this.enchantmentType = enchantmentType;
         }
 
-        private String getPath() {
-            return this.path;
+        public String toString() {
+            return this.name;
         }
 
-        private Formatting getFormat() {
+        public Formatting getFormat() {
             return this.format;
+        }
+
+        public Class<? extends Enchantment> getEnchantmentType() {
+            return this.enchantmentType;
         }
     }
 }

@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.moistti.nether_depths.block.AncientForgeBlock;
 import net.moistti.nether_depths.forging.ForgeInventory;
+import net.moistti.nether_depths.item.GemItem;
 import net.moistti.nether_depths.screen.AbstractForgeScreenHandler;
 import net.moistti.nether_depths.util.GemUtil;
 
@@ -101,7 +102,7 @@ public abstract class AbstractForgeBlockEntity extends LockableContainerBlockEnt
         if (!AbstractForgeScreenHandler.validIngredients(ForgeInventory.of(inventory)))
             return;
         ItemStack outputItem = inventory.get(1).copy();
-        String gemType = inventory.get(2).getItem().toString();
+        String gemType = ((GemItem) inventory.get(2).getItem()).type.toString();
 
         // get gem type, write into the item's nbt
         NbtCompound nbt = outputItem.getNbt();
