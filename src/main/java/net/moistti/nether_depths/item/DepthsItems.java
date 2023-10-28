@@ -24,7 +24,6 @@ public final class DepthsItems {
     public static final Item JADE = new GemItem(new FabricItemSettings(), GemItem.Type.JADE);
     public static final Item SAPPHIRE = new GemItem(new FabricItemSettings(), GemItem.Type.SAPPHIRE);
     public static final Item LAVA_BOAT = new LavaBoatItem(false, BoatEntity.Type.OAK, new FabricItemSettings().fireproof().maxCount(1));
-    public static final Item PIGLIN_ELITE_SPAWN_EGG = new SpawnEggItem(DepthsEntities.PIGLIN_ELITE, 0x5c463a, 0xd69347, new FabricItemSettings());
     public static final Item FIRE_SPIRIT_SPAWN_EGG = new SpawnEggItem(DepthsEntities.FIRE_SPIRIT, 0xeb9413, 0x2e1b00, new FabricItemSettings());
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
@@ -78,6 +77,7 @@ public final class DepthsItems {
 
         addItem("fire_shard", FIRE_SHARD);
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);
+        FuelRegistry.INSTANCE.add(FIRE_SHARD, 20000);
 
         addItem("ancient_forge", new BlockItem(DepthsBlocks.ANCIENT_FORGE, new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ANCIENT_FORGE.asItem(), Items.BLAST_FURNACE);
@@ -111,11 +111,8 @@ public final class DepthsItems {
         addItem("enhanced_beacon", new BlockItem(DepthsBlocks.ENHANCED_BEACON, new FabricItemSettings().rarity(Rarity.EPIC)));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.ENHANCED_BEACON.asItem(), Items.BEACON);
 
-        addItem("piglin_elite_spawn_egg", PIGLIN_ELITE_SPAWN_EGG);
-        addToItemGroup(ItemGroups.SPAWN_EGGS, PIGLIN_ELITE_SPAWN_EGG, Items.PIGLIN_BRUTE_SPAWN_EGG);
-
         addItem("fire_spirit_spawn_egg", FIRE_SPIRIT_SPAWN_EGG);
-        addToItemGroup(ItemGroups.SPAWN_EGGS, FIRE_SPIRIT_SPAWN_EGG, PIGLIN_ELITE_SPAWN_EGG);
+        addToItemGroup(ItemGroups.SPAWN_EGGS, FIRE_SPIRIT_SPAWN_EGG, Items.PIGLIN_BRUTE_SPAWN_EGG);
     }
 
     private static void addItem(String itemName, Item item) {

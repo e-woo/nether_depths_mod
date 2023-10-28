@@ -16,10 +16,6 @@ public final class DepthsEntities {
             Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "lava_boat"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType.EntityFactory<LavaBoat>) LavaBoat::new).
             dimensions(EntityDimensions.fixed(1.375f, 0.5625f)).trackRangeChunks(10).fireImmune().build());
-    public static final EntityType<PiglinEliteEntity> PIGLIN_ELITE = Registry.register(
-            Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "piglin_elite"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PiglinEliteEntity::new).
-            dimensions(EntityDimensions.fixed(0.6f, 1.95f)).trackRangeChunks(8).build());
 
     public static final EntityType<FireSpiritEntity> FIRE_SPIRIT = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "fire_spirit"),
@@ -27,7 +23,6 @@ public final class DepthsEntities {
             dimensions(EntityDimensions.fixed(1.1f, 0.7f)).trackRangeChunks(8).fireImmune().build());
 
     public static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(PIGLIN_ELITE, PiglinEliteEntity.createPiglinEliteAttributes());
         FabricDefaultAttributeRegistry.register(FIRE_SPIRIT, FireSpiritEntity.createFireSpiritAttributes());
     }
 }

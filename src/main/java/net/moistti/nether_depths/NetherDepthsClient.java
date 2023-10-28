@@ -10,7 +10,6 @@ import net.minecraft.client.particle.WaterSuspendParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BeaconBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.moistti.nether_depths.client.HeatHudOverlay;
 import net.moistti.nether_depths.block.entity.DepthsBlockEntityTypes;
 import net.moistti.nether_depths.block.DepthsBlocks;
@@ -18,7 +17,6 @@ import net.moistti.nether_depths.entity.*;
 import net.moistti.nether_depths.entity.model.FireSpiritEntityModel;
 import net.moistti.nether_depths.entity.render.FireSpiritEntityRenderer;
 import net.moistti.nether_depths.entity.render.LavaBoatRenderer;
-import net.moistti.nether_depths.entity.render.PiglinEliteEntityRenderer;
 import net.moistti.nether_depths.particle.DepthsParticles;
 import net.moistti.nether_depths.network.Packets;
 
@@ -26,7 +24,6 @@ public class NetherDepthsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(DepthsEntities.LAVA_BOAT, (entityRenderDispatcher) -> new LavaBoatRenderer(entityRenderDispatcher, false));
-        EntityRendererRegistry.register(DepthsEntities.PIGLIN_ELITE, (EntityRenderDispatcher) -> new PiglinEliteEntityRenderer(EntityRenderDispatcher, EntityModelLayers.PIGLIN, EntityModelLayers.PIGLIN_INNER_ARMOR, EntityModelLayers.PIGLIN_OUTER_ARMOR, false));
         EntityRendererRegistry.register(DepthsEntities.FIRE_SPIRIT, FireSpiritEntityRenderer::new);
         Packets.registerS2CPackets();
         HudRenderCallback.EVENT.register(new HeatHudOverlay());
