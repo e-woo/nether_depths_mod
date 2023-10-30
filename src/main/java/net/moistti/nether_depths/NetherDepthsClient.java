@@ -27,7 +27,6 @@ public class NetherDepthsClient implements ClientModInitializer {
         EntityRendererRegistry.register(DepthsEntities.FIRE_SPIRIT, FireSpiritEntityRenderer::new);
         Packets.registerS2CPackets();
         HudRenderCallback.EVENT.register(new HeatHudOverlay());
-        BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.FIRE_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.RUBY_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.TOPAZ_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.JADE_CRYSTAL, RenderLayer.getCutout());

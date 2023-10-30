@@ -85,10 +85,10 @@ public final class DepthsItems {
         addItem("forge", new BlockItem(DepthsBlocks.FORGE, new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
         addToItemGroup(ItemGroups.FUNCTIONAL, DepthsBlocks.FORGE.asItem(), DepthsBlocks.ANCIENT_FORGE.asItem());
 
-        addItem("fire_crystal", new BlockItem(DepthsBlocks.FIRE_CRYSTAL, new FabricItemSettings().fireproof()));
-        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.FIRE_CRYSTAL.asItem(), Items.AMETHYST_CLUSTER);
+        addItem("radiating_netherstone", new BlockItem(DepthsBlocks.RADIATING_NETHERSTONE, new FabricItemSettings()));
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.RADIATING_NETHERSTONE.asItem(), Items.AMETHYST_CLUSTER);
         addBlockItem("ruby_crystal", DepthsBlocks.RUBY_CRYSTAL);
-        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.RUBY_CRYSTAL.asItem(), DepthsBlocks.FIRE_CRYSTAL.asItem());
+        addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.RUBY_CRYSTAL.asItem(), DepthsBlocks.RADIATING_NETHERSTONE.asItem());
         addBlockItem("topaz_crystal", DepthsBlocks.TOPAZ_CRYSTAL);
         addToItemGroup(ItemGroups.NATURAL, DepthsBlocks.TOPAZ_CRYSTAL.asItem(), DepthsBlocks.RUBY_CRYSTAL.asItem());
         addBlockItem("jade_crystal", DepthsBlocks.JADE_CRYSTAL);

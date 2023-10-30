@@ -27,12 +27,6 @@
           "data": {
             "Name": "nether_depths:sapphire_crystal"
           }
-        },
-        {
-          "weight": 1,
-          "data": {
-            "Name": "nether_depths:fire_crystal"
-          }
         }
       ]
     }

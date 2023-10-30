@@ -20,7 +20,7 @@ public final class DepthsFeatures {
     public static final RegistryKey<PlacedFeature> MAGMA_DEPTHS_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(NetherDepths.MOD_ID, "ore_magma_depths"));
     public static final RegistryKey<PlacedFeature> SPRING_DEPTHS_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(NetherDepths.MOD_ID, "spring_depths_open"));
     public static final RegistryKey<PlacedFeature> CRYSTAL_DEPTHS_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(NetherDepths.MOD_ID, "crystals_depths"));
-
+    public static final RegistryKey<PlacedFeature> RADIATING_NETHERSTONE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(NetherDepths.MOD_ID, "ore_radiating_netherstone"));
     public static void register() {
         BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.UNDERGROUND_ORES, NETHERSTONE_GOLD_ORE_PLACED_KEY);
         BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.UNDERGROUND_ORES, NETHERSTONE_QUARTZ_ORE_PLACED_KEY);
@@ -29,6 +29,7 @@ public final class DepthsFeatures {
         BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.UNDERGROUND_ORES, MAGMA_DEPTHS_PLACED_KEY);
         BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.FLUID_SPRINGS, SPRING_DEPTHS_PLACED_KEY);
         BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.UNDERGROUND_ORES, CRYSTAL_DEPTHS_PLACED_KEY);
+        BiomeModifications.addFeature(NETHER_DEPTH_PREDICATE, GenerationStep.Feature.UNDERGROUND_ORES, RADIATING_NETHERSTONE_PLACED_KEY);
     }
 
 

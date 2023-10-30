@@ -42,15 +42,6 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "nether_depths:temple_of_the_depths/fire_room",
-        "processors": "nether_depths:temple_of_the_depths_generic_degradation"
-      }
-    },
-    {
-      "weight": 2,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "projection": "rigid",
         "location": "nether_depths:temple_of_the_depths/ruby_room",
         "processors": "nether_depths:temple_of_the_depths_generic_degradation"
       }

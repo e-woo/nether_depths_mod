@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "nether_depths:fire_crystal",
+              "name": "nether_depths:radiating_netherstone",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
