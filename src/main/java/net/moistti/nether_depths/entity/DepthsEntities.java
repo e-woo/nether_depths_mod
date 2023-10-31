@@ -22,6 +22,11 @@ public final class DepthsEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FireSpiritEntity::new).
             dimensions(EntityDimensions.fixed(1.1f, 0.7f)).trackRangeChunks(8).fireImmune().build());
 
+    public static final EntityType<ExplosiveArrowEntity> EXPLOSIVE_ARROW = Registry.register(
+            Registries.ENTITY_TYPE, new Identifier(NetherDepths.MOD_ID, "explosive_arrow"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, (EntityType.EntityFactory<ExplosiveArrowEntity>) ExplosiveArrowEntity::new).
+            dimensions(EntityDimensions.fixed(0.5f, 0.5f)).trackRangeChunks(4).trackedUpdateRate(20).build());
+
     public static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(FIRE_SPIRIT, FireSpiritEntity.createFireSpiritAttributes());
     }

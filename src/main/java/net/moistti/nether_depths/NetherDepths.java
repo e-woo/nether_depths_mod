@@ -13,6 +13,7 @@ import net.moistti.nether_depths.item.DepthsItems;
 import net.moistti.nether_depths.network.Packets;
 import net.moistti.nether_depths.particle.DepthsParticles;
 import net.moistti.nether_depths.screen.DepthsScreens;
+import net.moistti.nether_depths.util.DispenserBehavior;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,7 @@ public class NetherDepths implements ModInitializer {
 		DepthsBlockEntityTypes.register();
 		DepthsEnchantments.register();
 		DepthsEntities.registerAttributes();
+		DispenserBehavior.registerDispenserBehavior();
 		Packets.registerC2SPackets();
 		Packets.registerS2CPackets();
 	}

@@ -17,7 +17,8 @@
     "LavaBoatSoundMixin",
     "LavaOceanTickerMixin",
     "NetherGenerationMixin",
-    "RarityMixin"
+    "RarityMixin",
+    "StuckArrowMixin"
   ],
   "injectors": {
     "defaultRequire": 1

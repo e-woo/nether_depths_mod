@@ -15,6 +15,7 @@ import net.moistti.nether_depths.block.entity.DepthsBlockEntityTypes;
 import net.moistti.nether_depths.block.DepthsBlocks;
 import net.moistti.nether_depths.entity.*;
 import net.moistti.nether_depths.entity.model.FireSpiritEntityModel;
+import net.moistti.nether_depths.entity.render.ExplosiveArrowEntityRenderer;
 import net.moistti.nether_depths.entity.render.FireSpiritEntityRenderer;
 import net.moistti.nether_depths.entity.render.LavaBoatRenderer;
 import net.moistti.nether_depths.particle.DepthsParticles;
@@ -25,6 +26,7 @@ public class NetherDepthsClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(DepthsEntities.LAVA_BOAT, (entityRenderDispatcher) -> new LavaBoatRenderer(entityRenderDispatcher, false));
         EntityRendererRegistry.register(DepthsEntities.FIRE_SPIRIT, FireSpiritEntityRenderer::new);
+        EntityRendererRegistry.register(DepthsEntities.EXPLOSIVE_ARROW, ExplosiveArrowEntityRenderer::new);
         Packets.registerS2CPackets();
         HudRenderCallback.EVENT.register(new HeatHudOverlay());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.RUBY_CRYSTAL, RenderLayer.getCutout());

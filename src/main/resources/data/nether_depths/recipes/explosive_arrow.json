@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:arrow"
+    },
+    {
+      "item": "nether_depths:unstable_gunpowder"
+    }
+  ],
+  "result": {
+    "item": "nether_depths:explosive_arrow"
+  }
+}

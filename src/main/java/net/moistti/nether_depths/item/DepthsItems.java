@@ -25,6 +25,8 @@ public final class DepthsItems {
     public static final Item SAPPHIRE = new GemItem(new FabricItemSettings(), GemItem.Type.SAPPHIRE);
     public static final Item LAVA_BOAT = new LavaBoatItem(false, BoatEntity.Type.OAK, new FabricItemSettings().fireproof().maxCount(1));
     public static final Item FIRE_SPIRIT_SPAWN_EGG = new SpawnEggItem(DepthsEntities.FIRE_SPIRIT, 0xeb9413, 0x2e1b00, new FabricItemSettings());
+    public static final Item EXPLOSIVE_ARROW = new ExplosiveArrowItem(new FabricItemSettings());
+    public static final Item UNSTABLE_GUNPOWDER = new Item(new FabricItemSettings());
     public static void register() {
         addBlockItem("netherstone", DepthsBlocks.NETHERSTONE);
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, DepthsBlocks.NETHERSTONE.asItem(), Items.POLISHED_BLACKSTONE_BRICK_WALL);
@@ -113,6 +115,12 @@ public final class DepthsItems {
 
         addItem("fire_spirit_spawn_egg", FIRE_SPIRIT_SPAWN_EGG);
         addToItemGroup(ItemGroups.SPAWN_EGGS, FIRE_SPIRIT_SPAWN_EGG, Items.PIGLIN_BRUTE_SPAWN_EGG);
+
+        addItem("explosive_arrow", EXPLOSIVE_ARROW);
+        addToItemGroup(ItemGroups.COMBAT, EXPLOSIVE_ARROW, Items.SPECTRAL_ARROW);
+
+        addItem("unstable_gunpowder", UNSTABLE_GUNPOWDER);
+        addToItemGroup(ItemGroups.INGREDIENTS, UNSTABLE_GUNPOWDER, Items.GUNPOWDER);
     }
 
     private static void addItem(String itemName, Item item) {
