@@ -32,17 +32,19 @@ public class ExplosiveArrowEntity extends ArrowEntity {
     public void tick() {
         super.tick();
         this.setCritical(false);
-        if (this.inGround)
-            explode(getX(), getY(), getZ());
-        if (this.getWorld().isClient)
-            for (int i = 0; i < 3; i++)
-                this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
+        if (!this.isSubmergedInWater()) {
+            if (this.inGround)
+                this.explode(getX(), getY(), getZ());
+            if (this.getWorld().isClient)
+                for (int i = 0; i < 3; i++)
+                    this.getWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
+        }
     }
 
     @Override
     protected void onHit(LivingEntity target) {
         super.onHit(target);
-        explode(target.getX(), target.getY(), target.getZ());
+        this.explode(target.getX(), target.getY(), target.getZ());
     }
 
     @Override
@@ -52,8 +54,8 @@ public class ExplosiveArrowEntity extends ArrowEntity {
 
     private void explode(double x, double y, double z) {
         if (!getWorld().isClient) {
-            getWorld().createExplosion(this, x, y, z, 2.0f, World.ExplosionSourceType.MOB);
-            discard();
+            this.getWorld().createExplosion(this, x, y, z, 2.5f, true, World.ExplosionSourceType.BLOCK);
+            this.discard();
         }
     }
 }

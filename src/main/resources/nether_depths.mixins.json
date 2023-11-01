@@ -9,6 +9,7 @@
     "BeaconBlockMixin",
     "DepthsHeatHelperMixin",
     "DepthsPortalBlockerMixin",
+    "FireworkRocketRecipeMixin",
     "FurnaceFuelMixin",
     "GemTooltipMixin",
     "HeatedTouchMixin",
