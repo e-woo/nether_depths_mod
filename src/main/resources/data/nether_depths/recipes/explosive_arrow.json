@@ -1,14 +1,20 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#F#",
+    "###"
+  ],
+  "key": {
+    "#": {
       "item": "minecraft:arrow"
     },
-    {
-      "item": "nether_depths:unstable_gunpowder"
+    "F": {
+      "item": "nether_depths:fire_shard"
     }
-  ],
+  },
   "result": {
+    "count": 8,
     "item": "nether_depths:explosive_arrow"
   }
 }
