@@ -24,20 +24,38 @@ import net.moistti.nether_depths.network.Packets;
 public class NetherDepthsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        registerEntityRenderers();
+        registerEntityModelLayers();
+        registerBlockEntityRenderers();
+        registerBlockRenderLayers();
+        registerParticles();
+        Packets.registerS2CPackets();
+        HudRenderCallback.EVENT.register(new HeatHudOverlay());
+    }
+
+    public void registerEntityRenderers() {
         EntityRendererRegistry.register(DepthsEntities.LAVA_BOAT, (entityRenderDispatcher) -> new LavaBoatRenderer(entityRenderDispatcher, false));
         EntityRendererRegistry.register(DepthsEntities.FIRE_SPIRIT, FireSpiritEntityRenderer::new);
         EntityRendererRegistry.register(DepthsEntities.EXPLOSIVE_ARROW, ExplosiveArrowEntityRenderer::new);
-        Packets.registerS2CPackets();
-        HudRenderCallback.EVENT.register(new HeatHudOverlay());
+    }
+
+    public void registerEntityModelLayers() {
+        EntityModelLayerRegistry.registerModelLayer(DepthsEntityModelLayers.FIRE_SPIRIT, FireSpiritEntityModel::getTexturedModelData);
+    }
+
+    public void registerBlockEntityRenderers() {
+        BlockEntityRendererFactories.register(DepthsBlockEntityTypes.ENHANCED_BEACON, BeaconBlockEntityRenderer::new);
+    }
+
+    public void registerBlockRenderLayers() {
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.RUBY_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.TOPAZ_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.JADE_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.SAPPHIRE_CRYSTAL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(DepthsBlocks.ENHANCED_BEACON, RenderLayer.getCutout());
-        BlockEntityRendererFactories.register(DepthsBlockEntityTypes.ENHANCED_BEACON, BeaconBlockEntityRenderer::new);
-        ParticleFactoryRegistry.getInstance().register(DepthsParticles.EMBER, WaterSuspendParticle.CrimsonSporeFactory::new);
-        EntityModelLayerRegistry.registerModelLayer(DepthsEntityModelLayers.FIRE_SPIRIT, FireSpiritEntityModel::getTexturedModelData);
     }
 
-
+    public void registerParticles() {
+        ParticleFactoryRegistry.getInstance().register(DepthsParticles.EMBER, WaterSuspendParticle.CrimsonSporeFactory::new);
+    }
 }
