@@ -74,7 +74,7 @@ public final class DepthsItems {
         addToItemGroup(ItemGroups.INGREDIENTS, HEART_OF_THE_NETHER, Items.HEART_OF_THE_SEA);
         addItem("nether_core", NETHER_CORE);
         addToItemGroup(ItemGroups.INGREDIENTS, NETHER_CORE, HEART_OF_THE_NETHER);
-        FuelRegistry.INSTANCE.add(NETHER_CORE, 200);
+        FuelRegistry.INSTANCE.add(NETHER_CORE, 1);
 
         addItem("fire_shard", FIRE_SHARD);
         addToItemGroup(ItemGroups.INGREDIENTS, FIRE_SHARD, Items.AMETHYST_SHARD);

@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 
 public class GemUtil {
     public static final Map<String, List<Enchantment>> GEM_ENCHANTS = new HashMap<>();
-    private static final Set<EnchantmentTarget> acceptableTargetItems =
-            Set.of(EnchantmentTarget.ARMOR, EnchantmentTarget.WEAPON, EnchantmentTarget.DIGGER);
+    private static final Set<EnchantmentTarget> acceptableTargetItems = Set.of(EnchantmentTarget.ARMOR, EnchantmentTarget.WEAPON, EnchantmentTarget.DIGGER);
     static {
         for (GemItem.Type type : GemItem.Type.values())
             GEM_ENCHANTS.put(type.toString(), getEnchantments(type.getEnchantmentType()));
