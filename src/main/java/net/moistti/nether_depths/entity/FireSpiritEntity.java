@@ -71,8 +71,14 @@ public class FireSpiritEntity extends HostileEntity {
 
     @Override
     public void tickMovement() {
-        if (this.getWorld().isClient && this.random.nextInt(10) == 0)
-            this.getWorld().addParticle(ParticleTypes.LAVA, this.getParticleX(0.5), this.getRandomBodyY(), this.getParticleZ(0.5), 0.0, 0.0, 0.0);
+        if (this.getWorld().isClient) {
+            if (this.random.nextInt(24) == 0 && !this.isSilent())
+                this.getWorld().playSound(this.getX() + 0.5, this.getY() + 0.5, this.getZ() + 0.5, SoundEvents.ENTITY_BLAZE_BURN, this.getSoundCategory(), 1.0f + this.random.nextFloat(), this.random.nextFloat() * 0.7f + 0.3f, false);
+            for (int i = 0; i < 2; i++)
+                this.getWorld().addParticle(ParticleTypes.SMOKE, this.getParticleX(0.5), this.getRandomBodyY(), this.getParticleZ(0.5), 0.0, 0.0, 0.0);
+            if (this.random.nextInt(10) == 0)
+                this.getWorld().addParticle(ParticleTypes.LAVA, this.getParticleX(0.5), this.getRandomBodyY(), this.getParticleZ(0.5), 0.0, 0.0, 0.0);
+        }
         super.tickMovement();
     }
 
