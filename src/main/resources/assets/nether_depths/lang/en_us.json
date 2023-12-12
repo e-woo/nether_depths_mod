@@ -67,5 +67,6 @@
   "item.nether_depths.nether_core": "Nether Core",
   "item.nether_depths.explosive_arrow": "Explosive Arrow",
   "item.nether_depths.unstable_gunpowder": "Unstable Gunpowder",
+  "itemGroup.nether_depths.group": "Nether Depths",
   "filled_map.temple_of_the_depths": "Temple of the Depths Explorer Map"
 }
