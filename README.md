@@ -5,7 +5,7 @@ The Nether Depths Mod is a Minecraft Mod that expands exploration within the Net
 ## Nether Depths Biome
 The Nether Depths is a new, dark biome that generates below y = 0 in the Nether. This is where you will find all of the new resources that this mod introduces.
 
-Be careful! The head here is so immense that one will not survive long! You will need some form of protection - either fire resistance, or the new Flame Guard enchantment.
+Be careful! The heat here is so immense that one will not survive long! You will need some form of protection - either fire resistance, or the new Flame Guard enchantment.
 
 ## Gems
 The Nether Depths contains crystals scattered throughout the biome, which drops gems. Gems can also be found as loot in structures throughout the depths. Harvest them, and harness their power using a Forge! Gems will increase the maximum enchantment level of a certain enchantment on a weapon/tool/piece of armour. There are four different gems - each one providing a different boost. Each item can only have one gem at a time, so choose wisely!
